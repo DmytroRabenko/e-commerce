@@ -1,0 +1,33 @@
+@import '@/styles/variables.scss';
+
+.button {
+  position: relative;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 1rem;
+  color: inherit; 
+  border: $border;
+  border-radius: $br-small;
+  overflow: hidden;
+}
+
+.button:hover svg{
+  transform: scale(1.1);
+}
+
+.count{
+  position: absolute;
+  top: .1rem;
+  right: .1rem;
+  width: 1.1rem;
+  height: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $color_pink;
+  border-radius: $br-small;
+}
+

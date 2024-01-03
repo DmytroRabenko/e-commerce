@@ -1,0 +1,56 @@
+@import '@/styles/variables.scss';
+
+.fixedHeader {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  background-color: $color_white;
+  box-shadow: 0 0 40px $color_blue-gray;
+}
+
+.header2 {
+  background-color: $color-blue-gray;
+  color: $color_white;
+  padding: .2rem 0;
+  transition: $transition;
+  .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .logo {
+      display: block;
+      width: 4rem;
+      height: 4rem;
+      background-image: url('/logo.png');
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+    .hide{
+      display: none;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .listItem {
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 1rem;
+        padding: 0.35rem 0.75rem;
+        margin: 0 0.5rem;
+        color: $color_white;
+        transition: $transition;
+        border-radius: $br-medium;
+      }
+      .listItem:hover {
+        background-color: $color_pink;
+        color: $color_white;
+      }
+    }
+    .buttonsIcons {
+      display: flex;
+    }
+  }
+}

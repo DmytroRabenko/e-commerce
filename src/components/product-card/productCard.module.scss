@@ -1,0 +1,65 @@
+@import '@/styles/variables.scss';
+.productCard {
+  position: relative;
+  border-radius: $br-medium;
+  //padding: 1rem;
+  overflow: hidden;
+  box-shadow: $shadow-blue-gray-n;
+  transition: $transition;
+  img {
+    border-radius: $br-medium;
+    width: 100%;
+    height: auto;
+  }
+  .cardDescription{
+    padding: 1rem;
+    .name{
+      color: $color-blue-gray;
+      span{
+        color: $color_pink;
+      }
+    }
+    .height{
+      font-size: 1rem;
+    }
+    .color{
+      font-size: 1rem;
+    }
+    .priceblock{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 0.5rem;
+      .price{
+        font-weight: 500;
+        font-size: 1.1rem;
+        color: $color-blue-gray;
+      }
+    }
+  }
+  
+  .favorite{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: $color_white;
+    color: $color_pink;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.9rem;
+    height: 1.9rem;
+    border-radius: 50%;
+    transition: $transition;
+  }
+  .favorite:hover{
+    transform: scale(1.1);
+    box-shadow: $shadow-blue-gray-n;
+  }
+
+
+}
+.productCard:hover{
+  box-shadow: $shadow-blue-gray-a;
+}
+

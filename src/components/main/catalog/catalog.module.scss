@@ -1,0 +1,12 @@
+@import '@/styles/variables.scss';
+.catalog {
+  width: 100%;
+  min-height: 500px;
+  border: 1px solid black;
+  .products {
+    padding: 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.5rem;
+  }
+}

@@ -1,0 +1,37 @@
+@import '@/styles/variables.scss';
+
+.greeting {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: stretch;
+  padding: 3rem;
+  gap: 3rem;
+
+  .title {
+    flex: 1;
+    border: 1px solid black;
+    .text {
+      p {
+        text-indent: 2rem;
+      }
+      .link{
+        text-align: right;
+        a {
+          color: $color_link;
+          font-size: 1rem;
+        }
+      }
+      
+    }
+  }
+
+  .photo {
+    flex: 1;
+    background-image: url('/testphoto1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: $br-large;
+  }
+}

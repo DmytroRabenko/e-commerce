@@ -1,0 +1,30 @@
+{
+  "name": "my-e-commerc-project",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@chakra-ui/next-js": "^2.2.0",
+    "axios": "^1.6.3",
+    "next": "14.0.4",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-transition-group": "^4.4.5",
+    "zustand": "^4.4.7"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@types/react-transition-group": "^4.4.10",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.4",
+    "sass": "^1.69.6",
+    "typescript": "^5"
+  }
+}

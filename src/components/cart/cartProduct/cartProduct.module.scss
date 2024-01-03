@@ -1,0 +1,14 @@
+@import '@/styles/variables.scss';
+.product{
+    padding: .5rem .25rem;
+    border-bottom: 1px solid $color_lightgray;
+    display: flex;
+    //align-items: center;
+    gap: .5rem;
+    .img{
+        img{
+            object-fit: cover;
+            border-radius: $br-small;
+        }
+    }
+}

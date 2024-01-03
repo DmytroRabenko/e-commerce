@@ -1,0 +1,21 @@
+@import '@/styles/variables.scss';
+.button {
+  background-color: $color_pink;
+  box-shadow: $shadow-blue-gray-n;
+  color: inherit;
+  padding: 0.35rem 1.25rem;
+  cursor: pointer;
+  border-radius: $br-medium;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: $transition;
+  display: flex;
+  align-items: center;
+  .icon {
+    margin-right: 0.5rem;
+  }
+}
+.button:hover{
+  color: $color_white;
+  background-color: $color-blue-gray-light;
+}
