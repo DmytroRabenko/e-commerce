@@ -1,20 +1,19 @@
 import { create } from 'zustand';
-import { CartProduct } from '@/types/types';
+import { persist } from "zustand/middleware";
+import { Product } from '@/types/types';
 
 interface CartStore {
-  cartProducts: CartProduct[];
+  cartProducts: Product[];
   isCartVisible: boolean; //видимість корзини
-  addToCart: (product: CartProduct) => void; //додати в корзину
+  addToCart: (product: Product) => void; //додати в корзину
   removeFromCart: (productId: string) => void; //видалення з корзини
   toggleCartVisibility: () => void; //змінити видимість корзини
 }
 
-const useCartStore = create<CartStore>((set) => {
-  const storedCartProducts = localStorage.getItem('cartProducts');
-  const initialCartProducts: CartProduct[] = storedCartProducts ? JSON.parse(storedCartProducts) : [];
-
-  return {
-    cartProducts: initialCartProducts,
+const useCartStore = create<CartStore>()(
+  persist(
+    (set) =>({
+    cartProducts: [],
     isCartVisible: false,
 
     //дадати товар в корзину
@@ -27,15 +26,13 @@ const useCartStore = create<CartStore>((set) => {
           const newCartProducts = state.cartProducts.map((p) =>
             p.id === product.id ? { ...p, quantity: (p.quantity || 0) + 1 } : p
           );
-          localStorage.setItem('cartProducts', JSON.stringify(newCartProducts));
           return { cartProducts: newCartProducts };
         } else {
           // Якщо товару немає в корзині, додати його з кількістю 1
-          const newCartProducts: CartProduct[] = [
+          const newCartProducts: Product[] = [
             ...state.cartProducts,
             { ...product, quantity: 1 },
           ];
-          localStorage.setItem('cartProducts', JSON.stringify(newCartProducts));
           return { cartProducts: newCartProducts };
         }
       });
@@ -45,7 +42,6 @@ const useCartStore = create<CartStore>((set) => {
     removeFromCart: productId => {
       set(state => {
         const newCartProducts = state.cartProducts.filter(product => product.id !== productId);
-        localStorage.setItem('cartProducts', JSON.stringify(newCartProducts)); // Зберігаємо дані в localStorage
         return { cartProducts: newCartProducts };
       });
     },
@@ -53,7 +49,10 @@ const useCartStore = create<CartStore>((set) => {
     toggleCartVisibility: () => {
       set(state => ({ isCartVisible: !state.isCartVisible }));
     },
-  };
-});
+
+  }),
+  {name: 'cart'}
+)
+);
 
 export default useCartStore;
