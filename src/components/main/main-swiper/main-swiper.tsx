@@ -1,0 +1,45 @@
+'use client'
+import Image from 'next/image';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css';
+import s from './main-swiper.module.scss';
+
+const swiperData = [
+  {id: 1, url: '/main/main-swiper1.jpg'},
+  {id: 2, url: '/main/main-swiper2.jpg'},
+  {id: 3, url: '/main/main-swiper3.jpg'}
+]
+
+export default function MainSwiper() {
+  return (
+      <div className={s.container}>
+        <Swiper
+          className={s.slider}
+          modules={[Navigation, Pagination]}
+          spaceBetween={16}
+          slidesPerView={1}
+          pagination={{
+            el: "#containerForBullets",
+            type: "bullets",
+            bulletClass: "swiperCustomBullet",
+            bulletActiveClass: "swiperCustomBulletActive",
+            clickable: true,
+       }}
+       navigation
+          loop={true}
+        >
+          {swiperData.map(item => (
+            <SwiperSlide className={s.slideContent} key={item.id}>
+              <div className={s.slide}>
+                <Image src={item.url} fill={true} className={s.slideImage} alt='photo'></Image>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+        <div id={s.containerForBullets}></div>
+      </div>
+  );
+}

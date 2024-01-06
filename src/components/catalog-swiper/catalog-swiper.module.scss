@@ -1,0 +1,33 @@
+@import '@/styles/variables.scss';
+
+.container {
+  margin: 2rem auto;
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: $border;
+    margin-bottom: 1rem;
+    .navigations {
+      display: flex;
+      align-items: center;
+      color: $color_lightgray;
+      button{
+        margin: 0;
+        border:  0;
+        border-top: $border;
+        border-right: $border;
+        :hover{
+          color: $color_green;
+        }
+      }
+      button:first-child{
+        border-left: $border;
+      }
+    }
+  }
+  .slider{
+    width: 100%;
+    padding: .2rem;
+  }
+}

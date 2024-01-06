@@ -1,13 +1,12 @@
-'use client'
+'use client';
 import { useEffect, useState, RefObject } from 'react';
 
 interface ScrollOptions {
   offset?: number;
 }
-
+//
 export const useScroll = ({ offset = 0 }: ScrollOptions = {}) => {
   const [isScrolled, setIsScrolled] = useState(false);
-
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -15,7 +14,6 @@ export const useScroll = ({ offset = 0 }: ScrollOptions = {}) => {
     };
 
     window.addEventListener('scroll', handleScroll);
-
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -24,13 +22,13 @@ export const useScroll = ({ offset = 0 }: ScrollOptions = {}) => {
   return isScrolled;
 };
 
+//закриття вікна при кліку поза ним
 export const useClickOutside = (ref: RefObject<HTMLElement>, callback: () => void) => {
   const handleClickOutside = (event: MouseEvent) => {
     if (ref.current && !ref.current.contains(event.target as Node)) {
       callback();
     }
   };
-
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
@@ -38,4 +36,16 @@ export const useClickOutside = (ref: RefObject<HTMLElement>, callback: () => voi
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ref, callback]);
+};
+
+//відміна scroll для body
+export const useBodyScrollLock = (isActive: boolean) => {
+  useEffect(() => {
+    if (isActive) {
+      document.body.classList.add('noScroll');
+      return () => {
+        document.body.classList.remove('noScroll');
+      };
+    }
+  }, [isActive]);
 };

@@ -1,29 +1,19 @@
 'use client';
 import React, { useEffect, useRef } from 'react';
-import useStateStore from '@/store/stateStore';
+import useCartStore from '@/store/cartStore';
 import s from './cart.module.scss';
 import { Icons } from '@/components/ui/icons/icons';
 import CartProduct from './cartProduct/cartProduct';
-import { useClickOutside } from '@/hooks/hooks';
+import { useClickOutside, useBodyScrollLock } from '@/hooks/hooks';
 import { CSSTransition } from 'react-transition-group';
 import ButtonIcon from '@/components/ui/button-icon/button-icon';
 
 const Cart = () => {
-  const isCartVisible = useStateStore(state => state.isCartVisible);
-  const cartProducts = useStateStore(state => state.cartProducts);
-  const { toggleCartVisibility } = useStateStore();
+  const { isCartVisible, cartProducts, toggleCartVisibility } = useCartStore();
   const cartRef = useRef<HTMLDivElement>(null);
-
-  //відміна скролу при відкритті корзини
-  useEffect(() => {
-    document.body.classList.add('cart-visible');
-    return () => {
-      document.body.classList.remove('cart-visible');
-    };
-  }, []);
-
+  useBodyScrollLock(isCartVisible);
   useClickOutside(cartRef, toggleCartVisibility);
-
+  
   return (
     <CSSTransition
       in={isCartVisible}
@@ -41,7 +31,7 @@ const Cart = () => {
         <div className={s.cart} ref={cartRef}>
           <div className={s.title}>
             <h2>Корзина</h2>
-            <ButtonIcon onClick={toggleCartVisibility}>
+            <ButtonIcon customClass='light' size='small' onClick={toggleCartVisibility}>
               <Icons.close size="medium" />
             </ButtonIcon>
           </div>

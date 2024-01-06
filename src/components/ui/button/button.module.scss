@@ -1,11 +1,9 @@
 @import '@/styles/variables.scss';
 .button {
-  background-color: $color_pink;
-  box-shadow: $shadow-blue-gray-n;
   color: inherit;
-  padding: 0.35rem 1.25rem;
+  background-color: $color_red;
+  padding: .35rem .5rem;
   cursor: pointer;
-  border-radius: $br-medium;
   font-weight: 500;
   text-transform: uppercase;
   transition: $transition;
@@ -14,8 +12,16 @@
   .icon {
     margin-right: 0.5rem;
   }
+  svg{
+    transition: $transition;
+  }
 }
 .button:hover{
-  color: $color_white;
-  background-color: $color-blue-gray-light;
+
+ box-shadow: $shadow-blue-gray-n;
+// box-shadow: $shadow-blue-gray-a;
+ 
 }
+.button:hover svg{
+  transform: scale(1.1);
+ }

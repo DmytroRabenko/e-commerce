@@ -1,0 +1,9 @@
+@import '@/styles/variables.scss';
+.footer{
+    width:100%;
+    min-height: 250px;
+    background-color: $color-blue-gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

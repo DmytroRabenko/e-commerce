@@ -5,29 +5,27 @@
   top: 0;
   width: 100%;
   z-index: 10;
-  background-color: $color_white;
-  box-shadow: 0 0 40px $color_blue-gray;
 }
 
 .header2 {
-  background-color: $color-blue-gray;
   color: $color_white;
-  padding: .2rem 0;
+  background-color: $color_black; 
   transition: $transition;
+  height: 3rem;
   .content {
     display: flex;
     justify-content: space-between;
     align-items: center;
     .logo {
       display: block;
-      width: 4rem;
-      height: 4rem;
-      background-image: url('/logo.png');
-      background-position: center;
-      background-size: contain;
-      background-repeat: no-repeat;
+      //width: 4rem;
+      //height: 2rem;
+      // background-image: url('/logo.png');
+      // background-position: center;
+      // background-size: contain;
+      // background-repeat: no-repeat;
     }
-    .hide{
+    .hide {
       display: none;
     }
     .nav {
@@ -35,18 +33,20 @@
       justify-content: space-between;
       align-items: center;
       .listItem {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 3rem;
         text-transform: uppercase;
         font-weight: 500;
         font-size: 1rem;
-        padding: 0.35rem 0.75rem;
+        padding: 0 1rem;
         margin: 0 0.5rem;
         color: $color_white;
         transition: $transition;
-        border-radius: $br-medium;
-      }
-      .listItem:hover {
-        background-color: $color_pink;
-        color: $color_white;
+        &:hover{
+          background-color: $color-blue-gray;//$color_green;
+        }
       }
     }
     .buttonsIcons {

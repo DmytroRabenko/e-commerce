@@ -2,22 +2,19 @@
 
 .button {
   position: relative;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 3rem;
+  height: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-left: 1rem;
   color: inherit; 
-  border: $border;
-  border-radius: $br-small;
   overflow: hidden;
+  transition: $transition;
+  svg{
+    transition: $transition;
+  }
 }
-
-.button:hover svg{
-  transform: scale(1.1);
-}
-
 .count{
   position: absolute;
   top: .1rem;
@@ -27,7 +24,35 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: $color_pink;
-  border-radius: $br-small;
+  background-color: $color_green;
+}
+
+
+.light{
+  border: $border;
+  &:hover svg{
+    transform: scale(1.1);
+  }
+}
+.accent{
+  &:hover{
+    background-color: $color-blue-gray;
+  }
+}
+
+
+.small {
+  width: 2rem;
+  height: 2rem;
+}
+
+.medium {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.large {
+  width: 3rem;
+  height: 3rem;
 }
 

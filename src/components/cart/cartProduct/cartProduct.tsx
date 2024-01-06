@@ -1,22 +1,25 @@
 import React from 'react';
-import { Product } from '@/types/types';
 import s from './cartProduct.module.scss';
 import Image from 'next/image';
+import { Product } from '@/types/types';
 
 interface CartProductProps {
-  product: Product; 
+  product: Product;
 }
 
 const CartProduct: React.FC<CartProductProps> = ({ product }) => {
+  const { title, brand, seria, price, quantity, images } = product;
   return (
     <div className={s.product}>
       <div className={s.img}>
-        <Image src={product.url} alt={product.name} width={48} height={48}></Image>
+        <Image src={images[0]} alt={title} width={48} height={48}></Image>
       </div>
-      <div><span>{product.name}</span>
+      <div>
+        <span>{`${brand} ${seria}`}</span>
+        <span>{quantity}</span>
       </div>
       
-      <span>{product.price} грн</span>
+      <span>{price} грн</span>
     </div>
   );
 };

@@ -1,25 +1,31 @@
 @import '@/styles/variables.scss';
 .header1 {
-  background-color: $color_white;//$color_pink;//#a68066  $color_blue $color_brown
-  padding: 0.5rem 0;
-  color: $color_blue-gray;
+  background-color: $color_white;
+  color: $color_black;
+  padding: 0.2rem 0;
+  font-size: 0.9rem;
   .content {
     display: flex;
     align-items: center;
     justify-content: space-between;
     .phones {
       display: flex;
-      .phone {
-        padding: 0.25rem .5rem;
+    }
+    .link,
+    button {
+      color: inherit;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.2rem 0.5rem;
+      transition: $transition;
+      border-radius: $br-small;
+      &:first-child {
         margin-right: 1rem;
-        transition: $transition;
-        border-radius: $br-medium;
       }
-      .phone:hover {
-       // color: $color_white;
-        text-decoration: underline;
-        //background-color: $color-blue-gray;
-      }
+    }
+    button {
+      margin-left: 2rem;
     }
   }
 }
