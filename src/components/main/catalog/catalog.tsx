@@ -1,40 +1,39 @@
 'use client';
 import Container from '@/components/ui/container/container';
 import ProductCard from '@/components/product-card/productCard';
-import data from '@/data/perfume.json';
+import { Product } from '@/types/types';
 import s from './catalog.module.scss';
+import useServicesStore from '@/store/serviseStore';
+import { useEffect, useState } from 'react';
 
 export default function Catalog() {
-  const parfumes = data.catalog;
+  const [products, setProducts] = useState<Product[]>([])
+  const { getAllProducts } = useServicesStore();
+  const [loading, setLoading] = useState('loading');
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading('loading');
+        const result = await getAllProducts();
+        setProducts(result);
+        setLoading('success');
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        setLoading('error');
+      }
+    };
+
+    fetchData();
+  }, [getAllProducts]);
   return (
     <Container>
       <div className={s.catalog}>
         <div className={s.products}>
-          {parfumes.map(product => (
-            <ProductCard key={product.id} product={product} />
-          ))}
+          {loading === 'loading' && <div>Loading...</div>}
+          {products && products.length > 0 && loading === 'success' && products.map(product => <ProductCard key={product.id} product={product} />)}
         </div>
       </div>
     </Container>
   );
 }
-
-
-
-  /*
-  const { getAllProducts } = useServicesStore();
-
-  const fetchData = async () => {
-    try {
-      await getAllProducts();
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() =>{
-    fetchData();
-    //
-  },[]); // eslint-disable-line
-  */

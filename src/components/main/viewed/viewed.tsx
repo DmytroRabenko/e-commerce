@@ -1,9 +1,11 @@
-import CatalogSwiper from '@/components/catalog-swiper/catalog-swiper';
-import data from '@/data/perfume.json';
+'use client';
+import dynamic from 'next/dynamic';
+const ViewedSwiper = dynamic(() => import('@/components/main/viewed/viewed-swiper'), { ssr: false });
+import useViewedStore from '@/store/viewedStore';
 
-export default function Viewed() {
-  const products = data.catalog;
-  return (
-   <CatalogSwiper products={products} title='Переглянуті товари'/>
-  );
-}
+const Viewed: React.FC = () => {
+  const showViewed = useViewedStore(state => state.showViewed);
+  return showViewed && <ViewedSwiper />;
+};
+
+export default Viewed;

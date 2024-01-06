@@ -19,7 +19,7 @@ a {
   text-decoration: none;
 }
 
-button{
+button {
   background-color: inherit;
   border: none;
   cursor: pointer;
@@ -35,8 +35,29 @@ button{
   overflow: hidden;
 }
 
-.full{//////////////////////////////////
+.full {
+  //////////////////////////////////
   height: 500px;
   width: 100%;
   border: 1px solid black;
+}
+
+//swiper
+.swiper-pagination-bullet{
+  width: 2rem;
+  height: .5rem;
+  border-radius: 0;
+  margin: 0 0.1rem;
+  background-color: $color_blue-gray;
+}
+.swiper-pagination-bullet-active {
+  background-color: $color_green;
+}
+.swiper-lazy-preloader{
+  color: $color_green;
+ // border: 1px solid $color_green;
+}
+.preloader{
+  color: $color_green;
+ // border: 1px solid $color_green;
 }

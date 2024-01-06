@@ -30,7 +30,7 @@ export interface Product {
   finalNote?: string
   code: string
   images: string[] | []
-  reviews: Rewiew[]
+  reviews?: Rewiew[] | []
   quantity?: number
 }
 

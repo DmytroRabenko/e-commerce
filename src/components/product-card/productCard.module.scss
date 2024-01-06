@@ -18,15 +18,16 @@
     }
   }
   .description {
+    height: 100px;
     padding: 1rem 0;
     color: $color-blue-gray;
     .name {
       display: block;
-      padding-top: .2rem;
+      padding-top: 0.2rem;
       color: $color-green;
-      font-size: .9rem;
+      font-size: 0.9rem;
       font-weight: 700;
-      }
+    }
   }
   .priceblock {
     display: flex;
@@ -36,7 +37,7 @@
     .price {
       font-weight: 500;
       font-size: 1.1rem;
-      
+
       color: $color-blue-gray;
     }
   }
@@ -51,7 +52,7 @@
     justify-content: center;
     width: 1.9rem;
     height: 1.9rem;
-    transition: all .2s ease-in;
+    transition: all 0.2s ease-in;
     background-color: transparent;
     backdrop-filter: blur(10);
   }
@@ -63,3 +64,4 @@
 .productCard:hover {
   box-shadow: $shadow-blue-gray-a;
 }
+

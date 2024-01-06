@@ -3,7 +3,8 @@ import Link from 'next/link';
 import Container from '@/components/ui/container/container';
 import { Icons } from '@/components/ui/icons/icons';
 import {useScroll} from '@/hooks/hooks';
-import ButtonIcon from '@/components/ui/button-icon/button-icon';
+import dynamic from 'next/dynamic';
+const ButtonIcon = dynamic(() => import('@/components/ui/button-icon/button-icon'), { ssr: false })
 import { navList } from '@/data/constants';
 import useCartStore from '@/store/cartStore';
 import useFavoriteStore from '@/store/favoriteStore';
@@ -31,8 +32,15 @@ export default function Header2 () {
             <ButtonIcon size='large' customClass='accent' count={favoriteCount}><Icons.favoriteOutlined size="medium" /></ButtonIcon>
             <ButtonIcon size='large' customClass='accent' onClick={toggleCartVisibility} count={cartCount}><Icons.cartOutlined size="medium" /></ButtonIcon>
           </div>
+          
         </div>
       </Container>
     </div>
   );
 }
+/*
+<div className={s.buttonsIcons}>
+            <ButtonIcon size='large' customClass='accent' count={favoriteCount}><Icons.favoriteOutlined size="medium" /></ButtonIcon>
+            <ButtonIcon size='large' customClass='accent' onClick={toggleCartVisibility} count={cartCount}><Icons.cartOutlined size="medium" /></ButtonIcon>
+          </div>
+*/

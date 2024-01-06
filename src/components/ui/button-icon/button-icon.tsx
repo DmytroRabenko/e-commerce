@@ -1,4 +1,5 @@
-import React, { ButtonHTMLAttributes, ReactNode } from 'react';
+'use client';
+import React, { ButtonHTMLAttributes, ReactNode, useEffect, useState } from 'react';
 import s from './button-icon.module.scss';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -6,11 +7,10 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   icon?: ReactNode;
   count?: number;
   customClass?: string;
-  size?: string
+  size?: string;
 }
 
-const ButtonIcon: React.FC<ButtonProps> = ({ children, icon, count, customClass, size='medium', ...buttonProps }) => {
-
+const ButtonIcon: React.FC<ButtonProps> = ({ children, icon, count, customClass, size = 'medium', ...buttonProps }) => {
   return (
     <button className={`${s.button} ${customClass && s[customClass]} ${size && s[size]}`} {...buttonProps}>
       {icon && <span className={s.icon}>{icon}</span>}
