@@ -2,7 +2,7 @@ import React from 'react';
 import s from './icons.module.scss';
 
 interface IconProps extends React.HTMLAttributes<SVGElement> {
-  size?: 'small' | 'medium' | 'large';
+  size?: 'small' | 'medium' | 'large' | 'extraLarge';
 }
 
 const Icon: React.FC<IconProps> = ({ size = 'medium', className, children, ...props }) => {

@@ -38,9 +38,3 @@ export default function Header2 () {
     </div>
   );
 }
-/*
-<div className={s.buttonsIcons}>
-            <ButtonIcon size='large' customClass='accent' count={favoriteCount}><Icons.favoriteOutlined size="medium" /></ButtonIcon>
-            <ButtonIcon size='large' customClass='accent' onClick={toggleCartVisibility} count={cartCount}><Icons.cartOutlined size="medium" /></ButtonIcon>
-          </div>
-*/

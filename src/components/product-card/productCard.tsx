@@ -31,7 +31,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       <div className={s.imageContainer}>
         <Image className={s.image} src={images[0]} alt={title} fill={true} />
       </div>
-      <Link href={`/${product.id}`} className={s.description}>
+      <Link href={`/product/${product.id}`} className={s.description}>
         <ProductCardRewiews 
         reviewsCount={product?.reviews?.length}
         ratingValue={4}

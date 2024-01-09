@@ -4,25 +4,29 @@
   width: 100%;
   height: 500px;
   margin: 0 auto;
-  
-  &>div>div:nth-child(2), &>div>div:nth-child(3){
+  & > div > div:nth-child(2),
+  & > div > div:nth-child(3) {
     display: none;
     width: 2.5rem;
     height: 4rem;
-  }
-  &>div>div:nth-child(2)::after, &>div>div:nth-child(3)::after{
-   color: $color_lightgray;
     transition: $transition;
   }
-  &>div>div:nth-child(2):hover, &>div>div:nth-child(3):hover{
+  & > div > div:nth-child(2)::after,
+  & > div > div:nth-child(3)::after {
+    color: $color_lightgray;
+    transition: $transition;
+  }
+  & > div > div:nth-child(2):hover,
+  & > div > div:nth-child(3):hover {
     background-color: transparent;
     backdrop-filter: blur(10px);
-    &::after{
+    &::after {
       color: $color_green;
     }
   }
 
   .slider {
+    // transition: $transition;
     .slide {
       width: 100%;
       height: 500px;
@@ -31,21 +35,8 @@
       }
     }
   }
-  #containerForBullets{
-    .swiperCustomBullet {
-      height: 2px;
-      width: 2px;
-      background-color: white;
-    }
-    
-    .swiperCustomBullet.swiperCustomBulletActive {
-      height: 2px;
-      width: 2px;
-      background-color: orange;
-    }
-  }
- 
 }
-.container:hover >div>div:nth-child(2), .container:hover >div>div:nth-child(3){
+.container:hover > div > div:nth-child(2),
+.container:hover > div > div:nth-child(3) {
   display: flex;
 }

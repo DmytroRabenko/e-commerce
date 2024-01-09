@@ -21,8 +21,8 @@ export interface Product {
   brand: string
   seria?: string
   gender?: string
-  price: string
-  count: string
+  price: number
+  count: number
   country?: string
   madeIn?: string
   openingNote?: string
@@ -31,6 +31,6 @@ export interface Product {
   code: string
   images: string[] | []
   reviews?: Rewiew[] | []
-  quantity?: number
+  quantity: number
 }
 

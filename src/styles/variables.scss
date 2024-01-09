@@ -11,6 +11,15 @@ $color_lightgray: #e5e7eb;
 $color_gray: #2d383c;
 
 
+$linear-gradient-light: linear-gradient(180deg, #fafbfc, #ebeffa);
+$linear-gradient-blue-gray: linear-gradient(180deg,#2a3846, #2c3946);
+$linear-gradient-blue-gray-reverce: linear-gradient(180deg,#2c3946, #2a3846);
+$linear-gradient-green: linear-gradient(180deg,#0a767c, #016a70);
+$linear-gradient-green-reverce: linear-gradient(180deg,#016a70, #0a767c);
+$linear-gradient-red: linear-gradient(180deg,#e24a4f, #f84147);
+$linear-gradient-red-reverce: linear-gradient(180deg,#f84147 #e24a4f);
+
+
 $transition: all ease .3s;
 $border: 1px solid $color_lightgray; 
 $br-small: 4px;

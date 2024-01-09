@@ -1,14 +1,52 @@
 @import '@/styles/variables.scss';
-.product{
-    padding: .5rem .25rem;
-    border-bottom: 1px solid $color_lightgray;
+.product {
+  width: 100%;
+  padding: 0.5rem 0.25rem;
+  border-bottom: 1px solid $color_lightgray;
+  display: flex;
+  color: $color_blue-gray;
+  gap: 0.5rem;
+  .img {
+    border-radius: $br-small;
+    background-color: white;
     display: flex;
-    //align-items: center;
-    gap: .5rem;
-    .img{
-        img{
-            object-fit: cover;
-            border-radius: $br-small;
-        }
+    align-items: center;
+    justify-content: center;
+    padding: .2rem;
+    img {
+      object-fit: contain;
     }
+  }
+  .description {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    > div {
+      display: flex;
+    }
+  }
+  .title{
+    color: $color_black;
+  }
+  .count {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    .quantity {
+      width: 1.5rem;
+      height: 1.5rem;
+      text-align: center;
+      padding: 0.25rem .1rem;
+      border-top: $border;
+      border-bottom: $border;
+    }
+  }
 }

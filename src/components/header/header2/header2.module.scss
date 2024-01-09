@@ -38,6 +38,7 @@
         justify-content: center;
         height: 3rem;
         text-transform: uppercase;
+        text-align: center;
         font-weight: 500;
         font-size: 1rem;
         padding: 0 1rem;
@@ -45,12 +46,15 @@
         color: $color_white;
         transition: $transition;
         &:hover{
-          background-color: $color-blue-gray;//$color_green;
+          background-color: $color-blue-gray;
         }
       }
     }
     .buttonsIcons {
       display: flex;
+      >button{
+        margin-left: 1rem;
+      }
     }
   }
 }

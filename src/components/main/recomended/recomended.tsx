@@ -1,4 +1,4 @@
-'use client';
+//'use client';
 import CatalogSwiper from '@/components/catalog-swiper/catalog-swiper';
 
 export default function Recomended() {

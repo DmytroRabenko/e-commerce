@@ -1,5 +1,6 @@
 import Container from '@/components/ui/container/container';
 import Link from 'next/link';
+import Button from '@/components/ui/button/button';
 import { Icons } from '@/components/ui/icons/icons';
 import s from './header1.module.scss';
 
@@ -15,9 +16,10 @@ export default function Header1() {
             <Link className={s.link} href="/">
               +38 (098) 899 9869
             </Link>
-            <button>Зворотній дзвінок</button>
+              <Button icon={<Icons.phone size='small'/>}>Зворотній дзвінок</Button>
           </div>
-          <Link className={s.link} href='/'><Icons.person size="small" />Вхід</Link >
+          <Link className={s.link} href='/login'>
+          <Button icon={<Icons.person size='small'/>}>Вхід</Button></Link >
         </div>
       </Container>
     </div>
