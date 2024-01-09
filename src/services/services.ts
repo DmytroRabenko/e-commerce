@@ -27,7 +27,15 @@ export async function getCategoryProducts({category, page, limit}:GetCategoryPro
       throw new Error(error?.response?.data?.message);
     }
   }
-
+  export async function getProductById(id: string) {
+    try {
+      const res = await axios.get(`/catalog/${id}`);
+      return res.data;
+    } catch (error: any) {
+      throw new Error(error?.response?.data?.message);
+    }
+  }
+/*
 export async function getProductById(id: string) {
   try {
     const res = await axios.get(`/catalog/${id}`);
@@ -36,3 +44,4 @@ export async function getProductById(id: string) {
     throw new Error(error?.response?.data?.message);
   }
 }
+*/

@@ -41,27 +41,12 @@
       color: $color-blue-gray;
     }
   }
-
   .favorite {
     position: absolute;
     top: 1rem;
     right: 1rem;
-    color: $color-green;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 1.9rem;
-    height: 1.9rem;
-    transition: all 0.2s ease-in;
-    background-color: transparent;
-    backdrop-filter: blur(10);
-  }
-  .favorite:hover {
-    transform: scale(1.1);
-    box-shadow: $shadow-blue-gray-n;
   }
 }
 .productCard:hover {
   box-shadow: $shadow-blue-gray-a;
 }
-

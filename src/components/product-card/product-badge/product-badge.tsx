@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import s from './productBadge.module.scss';
+import s from './product-badge.module.scss';
 
 interface ProductBadgeProps {
   title: string | undefined;
@@ -9,11 +9,14 @@ const ProductBadge: React.FC<ProductBadgeProps> = ({ title }) => {
   let badgeText;
   if (title) {
     if (title === 'recomended') {
-      badgeText = 'Рекомендовано';
+      badgeText = 'Рекомендуємо';
     } else if (title === 'new') {
       badgeText = 'Новинка';
     } else if(title === 'sale'){
       badgeText = 'Sale';
+    }
+    else if(title === 'popular'){
+      badgeText = 'Популярне';
     }
     else{
       badgeText = title;

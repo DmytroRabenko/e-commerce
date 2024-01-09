@@ -15,7 +15,6 @@ const Cart = () => {
   const cartRef = useRef<HTMLDivElement>(null);
   useBodyScrollLock(isCartVisible);
   useClickOutside(cartRef, toggleCartVisibility);
-
   let totalValue = '';
   totalValue = calcTotalPrice(cartProducts, totalValue);
 
@@ -51,8 +50,8 @@ const Cart = () => {
 
               <div className={s.cartFooter}>
                 <div className={s.totalPrice}>Разом: {totalValue} грн</div>
-                <Link href="/">
-                  <Button color="green" width="full">
+                <Link href="/checkout">
+                  <Button color="green" width="full" onClick={toggleCartVisibility}>
                     Оформити замовлення
                   </Button>
                 </Link>
@@ -63,12 +62,10 @@ const Cart = () => {
             </>
           ) : (
             <div className={s.empty}>
-              <Icons.cartOutlined size='extraLarge'/>
+              <Icons.cartOutlined size="extraLarge" />
               <p>Кошик порожній</p>
-              <Button onClick={toggleCartVisibility}>
-                  Перейти до покупок
-                </Button>
-              </div>
+              <Button onClick={toggleCartVisibility}>Перейти до покупок</Button>
+            </div>
           )}
         </div>
       </div>

@@ -1,14 +1,14 @@
 'use client';
 import { useRef, useState, useEffect } from 'react';
 import Container from '@/components/ui/container/container';
-import ProductCard from '@/components/product-card/productCard';
+import dynamic from 'next/dynamic';
+const ProductCard = dynamic(()=> import('@/components/product-card/product-card'), {ssr: false}) ;
+//import ProductCard from '@/components/product-card/product-card';
 import ButtonIcon from '@/components/ui/button-icon/button-icon';
-import Loading from '@/components/loading/loading';
 import useServicesStore from '@/store/serviseStore';
 import { Product } from '@/types/types';
 import { Icons } from '@/components/ui/icons/icons';
-
-import { Swiper, SwiperSlide, useSwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -67,11 +67,28 @@ const CatalogSwiper: React.FC<CatalogSwiperProps> = ({ title, category }) => {
           modules={[Pagination]}
           pagination={{ clickable: true }}
           spaceBetween={20}
-          slidesPerView={5}
-          slidesPerGroup={5}
+          slidesPerView={1}
+          slidesPerGroup={1}
           loopAddBlankSlides
-          //lazyPreloadPrevNext={5}//дозавантаження 
           loop={true}
+          breakpoints={{
+            380: {
+              slidesPerView: 2,
+              slidesPerGroup: 2,
+            },
+            768: {
+              slidesPerView: 3,
+              slidesPerGroup: 3,
+            },
+            1024: {
+              slidesPerView: 4,
+              slidesPerGroup: 5,
+            },
+            1280: {
+              slidesPerView: 5,
+              slidesPerGroup: 5,
+            },
+          }}
         >
           {products.map(item => (
             <SwiperSlide className={`swiper-lazy ${s.slideContent}`} key={item.id}>

@@ -1,13 +1,13 @@
 'use client';
 import Container from '@/components/ui/container/container';
-import ProductCard from '@/components/product-card/productCard';
+import ProductCard from '@/components/product-card/product-card';
 import { Product } from '@/types/types';
 import s from './catalog.module.scss';
 import useServicesStore from '@/store/serviseStore';
 import { useEffect, useState } from 'react';
 
 export default function Catalog() {
-  const [products, setProducts] = useState<Product[]>([])
+  const [products, setProducts] = useState<Product[]>([]);
   const { getAllProducts } = useServicesStore();
   const [loading, setLoading] = useState('loading');
 
@@ -31,7 +31,10 @@ export default function Catalog() {
       <div className={s.catalog}>
         <div className={s.products}>
           {loading === 'loading' && <div>Loading...</div>}
-          {products && products.length > 0 && loading === 'success' && products.map(product => <ProductCard key={product.id} product={product} />)}
+          {products &&
+            products.length > 0 &&
+            loading === 'success' &&
+            products.map(product => <ProductCard key={product.id} product={product} />)}
         </div>
       </div>
     </Container>

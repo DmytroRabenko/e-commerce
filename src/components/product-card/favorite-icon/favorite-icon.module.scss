@@ -1,0 +1,17 @@
+@import '@/styles/variables.scss';
+
+.favorite {
+  color: $color-green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  transition: all 0.2s ease-in;
+  background-color: transparent;
+  backdrop-filter: blur(10);
+}
+.favorite:hover {
+  transform: scale(1.1);
+  box-shadow: $shadow-blue-gray-n;
+}
