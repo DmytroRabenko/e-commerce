@@ -6,10 +6,11 @@ import type { Product } from '@/types/types';
 import s from './favorite-icon.module.scss';
 
 interface FavoriteIconProps {
-  product: Product;
+  product: Product
+  size?: 'small' | 'medium' | 'large' | 'extraLarge';
 }
 
-const FavoriteIcon: React.FC<FavoriteIconProps> = ({ product }) => {
+const FavoriteIcon: React.FC<FavoriteIconProps> = ({ product, size}) => {
   const { favoriteProducts, addToFavorites, removeFromFavorites } = useFavoriteStore();
   const [isFavorite, setIsFavorite] = useState(false);
 
@@ -26,7 +27,7 @@ const FavoriteIcon: React.FC<FavoriteIconProps> = ({ product }) => {
         removeFromFavorites(product.id);
       }}
     >
-      <Icons.favoriteFilled size="medium" />
+      <Icons.favoriteFilled size={size} />
     </button>
   ) : (
     <button
@@ -35,7 +36,7 @@ const FavoriteIcon: React.FC<FavoriteIconProps> = ({ product }) => {
         addToFavorites(product);
       }}
     >
-      <Icons.favoriteOutlined size="medium" />
+      <Icons.favoriteOutlined size={size} />
     </button>
   );
 };

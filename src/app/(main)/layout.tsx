@@ -1,4 +1,4 @@
-//'use client';//product-page змінити на серверний і вимкнути
+import React from 'react';
 import { Suspense } from 'react';
 import Header from '@/components/header/header';
 import Footer from '@/components/footer/footer';

@@ -1,7 +1,7 @@
 @import '@/styles/variables.scss';
 .button {
   color: inherit;
-  padding: .35rem .5rem;
+  padding: 0.35rem 0.5rem;
   cursor: pointer;
   font-weight: 700;
   text-transform: uppercase;
@@ -17,46 +17,45 @@
     align-items: center;
     justify-content: center;
   }
-  svg{
+  svg {
     transition: $transition;
   }
 }
-.button:hover{
- box-shadow: $shadow-blue-gray-n;
+.button:hover {
+  box-shadow: $shadow-blue-gray-n;
   background: linear-gradient(180deg, #fafbfc, #ebeffa);
 }
-.button:hover svg{
+.button:hover svg {
   transform: scale(1.1);
- }
+}
 
- .red{
+.red {
   border: 1px solid $color_red;
   background: $linear-gradient-red;
   color: $color_white;
-  &:hover{
+  &:hover {
     background: $linear-gradient-red-reverce;
   }
- }
- .green{
+}
+.green {
   border: 1px solid $color_green;
   background: $linear-gradient-green;
   color: $color_white;
-  &:hover{
+  &:hover {
     background: $linear-gradient-green-reverce;
   }
- }
- .grey{
+}
+.grey {
   border: 1px solid $color_blue-gray;
   background: $linear-gradient-blue-gray;
   color: $color_white;
-  &:hover{
+  &:hover {
     background: $linear-gradient-blue-gray-reverce;
   }
- }
+}
 
-
- //width
- .full{
+//width
+.full {
   width: 100%;
-  padding: .5rem;
- }
+  padding: 0.5rem;
+}

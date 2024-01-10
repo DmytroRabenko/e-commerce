@@ -1,7 +1,7 @@
-//'use client';
+import React from 'react';
 import CatalogSwiper from '@/components/catalog-swiper/catalog-swiper';
 
-export default function Recomended() {
+export default async function Recomended() {
   return (
    <CatalogSwiper title='Рекомендовані товари' category='recomended'/>
   );

@@ -17,8 +17,9 @@ const ProductBuy: React.FC<ProductBuyProps> = ({ product }) => {
     onClick={() => {
       addToCart(product);
     }}
+    color="red"
   >
-    <Icons.buy size="medium" />
+    <Icons.buy size="medium"  />
     Купити
   </Button>
   )

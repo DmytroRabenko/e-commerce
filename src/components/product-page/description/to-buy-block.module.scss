@@ -1,0 +1,15 @@
+@import '@/styles/variables.scss';
+.container {
+    color: $color-blue-gray;
+  .price {
+    padding: 1rem 0;
+    font-size: 1.3rem;
+    color: $color_green;
+    span{
+        color: $color-blue-gray;;
+    }
+  }
+  .price {
+    font-size: 1.2rem;
+  }
+}
