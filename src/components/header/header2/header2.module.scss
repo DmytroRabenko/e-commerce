@@ -5,20 +5,44 @@
   top: 0;
   width: 100%;
   z-index: 10;
+  @media screen and (min-width: 1024px) {
+    border-bottom: 1px solid $color_lightgray;
+  }
 }
 
 .header2 {
+  background-color: $color_green;
   color: $color_white;
-  background-color: $color_black; 
   transition: $transition;
-  height: 3rem;
+  padding: 0.5rem 0;
+  @media screen and (min-width: 1024px) {
+    background-color: $color_white;
+    color: $color_gray;
+  }
+  .mobMenuButton {
+    padding: 0.5rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: $color_white;
+    transition: $transition;
+    border: 1px solid $color_white;
+    border-radius: $br_small;
+    :hover {
+      // background: $linear-gradient-green-reverce;
+      box-shadow: $shadow-blue-gray-n;
+      svg {
+        transform: scale(1.1);
+      }
+    }
+  }
   .content {
     display: flex;
     justify-content: space-between;
     align-items: center;
     .logo {
       display: block;
-      //width: 4rem;
+      width: 4rem;
       //height: 2rem;
       // background-image: url('/logo.png');
       // background-position: center;
@@ -36,24 +60,57 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 3rem;
         text-transform: uppercase;
         text-align: center;
-        font-weight: 500;
-        font-size: 1rem;
+        font-weight: 700;
+        font-size: 0.9rem;
         padding: 0 1rem;
         margin: 0 0.5rem;
-        color: $color_white;
         transition: $transition;
-        &:hover{
-          background-color: $color-blue-gray;
+        span {
+          display: inline-block;
+          padding: 0.5rem 0;
+          border-bottom: 2px solid $color_white;
+          transition: $transition;
+        }
+        &:hover {
+          span {
+            border-bottom: 2px solid $color_green;
+          }
         }
       }
     }
     .buttonsIcons {
       display: flex;
-      >button{
-        margin-left: 1rem;
+      align-items: center;
+      >:first-child, >:nth-child(2) {
+        display: none;
+      }
+      > span {
+        display: inline-block;
+        background-color: $color_white;
+        width: 1px;
+        height: 2rem;
+        margin: 0 0.2rem;
+      }
+      > button {
+        &:hover {
+          background-color: transparent;
+        }
+      }
+
+      @media screen and (min-width: 768px) {
+        >:first-child, >:nth-child(2) {
+          display: block;
+        }        
+      }
+      @media screen and (min-width: 1024px) {
+        > button {
+          margin-left: 1rem;
+        }
+        > span {
+          display: none;
+        }
       }
     }
   }

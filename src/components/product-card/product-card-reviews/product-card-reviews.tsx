@@ -1,8 +1,9 @@
+import React from 'react';
 import Rating from '@/components/ui/rating/rating';
 import s from './product-card-reviews.module.scss';
 
 interface ProductBadgeProps {
-  reviewsCount: number | undefined;
+  reviewsCount?: number | undefined;
   ratingValue: number | undefined;
 }
 

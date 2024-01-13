@@ -1,28 +1,40 @@
 @import '@/styles/variables.scss';
+
 .header1 {
-  background-color: $color_white;
-  color: $color_black;
-  padding: 0.2rem 0;
+  background-color: $color_green;
+  color: $color_white;
   font-size: 0.9rem;
   .content {
+    width: 100%;
+    height: 30px;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    .phones {
-      display: flex;
-      .link {
-        color: inherit;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0.2rem 0.5rem;
-        transition: $transition;
-        border-radius: $br-small;
-      }
+  }
+  .user {
+    height: 100%;
+    //background-color: $color_white;
+   // color: $color_gray;
+    padding: 0.25rem 0.5rem 0.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+    /*
+    border: 1px solid $color_red;
+    background: $linear-gradient-red;
+    color: $color_white;
+    &:hover {
+      background: $linear-gradient-red-reverce;
     }
-    button{
-      padding: .2rem .5rem;
-      margin-left: .5rem;
+    */
+    svg {
+      position: absolute;
+      left: 0;
+      bottom: 0.1rem;
+    }
+    span {
+      display: inline-block;
     }
   }
 }

@@ -1,0 +1,90 @@
+@import '@/styles/variables.scss';
+
+.callbackContainer {
+  display: block;
+  position: relative;
+  .trigger {
+    display: flex;
+    align-items: center;
+    color: inherit;
+    padding-right: 2rem;
+    transition: all linear 0.2s;
+    > svg {
+      margin-right: 0.5rem;
+    }
+    &:hover {
+      > svg {
+        transform: scale(1.1);
+      }
+    }
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      right: 0;
+      transition: all linear 0.2s;
+    }
+    .rotateIcon {
+      transform: rotate(180deg);
+    }
+  }
+  .block {
+    position: absolute;
+    top: 24px;
+    z-index: 20;
+    background-color: $color_white;
+    border-radius: $br-small;
+    padding: .75rem 0;
+    box-shadow: $shadow-blue-gray-a;
+    color: $color_gray;
+    font-size: 0.8rem;
+
+    ul {
+      list-style: none;
+      li {
+        position: relative;
+        padding: 0 .75rem;
+        &:hover {
+          background-color: $color_lightgray;
+        }
+        a {
+          display: block;
+          padding: 0.5rem 0.5rem 0.5rem 2rem;
+          &::before {
+            content: '';
+            position: absolute;
+            left: 1rem;
+            bottom: 0.4rem;
+            width: 1.2rem;
+            height: 1.2rem;
+            display: inline-block;
+            background-size: contain;
+            background-repeat: no-repeat;
+          }
+          &.instagram::before {
+            background-image: url('/icons/instagram.png');
+          }
+          &.telegram::before {
+            background-image: url('/icons/telegram.svg');
+          }
+          &.viber::before {
+            background-image: url('/icons/viber.png');
+          }
+          &.phone::before {
+            background-image: url('/icons/phone.svg');
+          }
+        }
+        .viber::before {
+          background-image: url('/icon/viber.png');
+        }
+      }
+    }
+    .info {
+      padding: 0.5rem .75rem 0;
+      p {
+        margin-top: 0.5rem;
+      }
+    }
+  }
+}

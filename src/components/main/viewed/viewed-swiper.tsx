@@ -1,9 +1,7 @@
 'use client';
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import Container from '@/components/ui/container/container';
-import dynamic from 'next/dynamic';
-const ProductCard = dynamic(()=> import('@/components/product-card/product-card'), {ssr: false}) ;
-//import ProductCard from '@/components/product-card/product-card';
+import ProductCard from '@/components/product-card/product-card';
 import ButtonIcon from '@/components/ui/button-icon/button-icon';
 import useViewedStore from '@/store/viewedStore';
 import { Icons } from '@/components/ui/icons/icons';
@@ -15,7 +13,7 @@ import s from '@/components/catalog-swiper/catalog-swiper.module.scss';
 import '@/styles/globals.scss';
 
 const ViewedSwiper: React.FC = () => {
-  const swiperRef = useRef<any>(undefined);
+  const swiperRef = useRef<any>(null);
   const { showViewed, viewedProducts } = useViewedStore();
 
   return (

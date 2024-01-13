@@ -1,7 +1,9 @@
 'use client';
+import React from 'react';
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import Container from '@/components/ui/container/container';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css';
@@ -15,6 +17,7 @@ const swiperData = [
 
 export default function MainSwiper() {
   return (
+    <Container>
     <div className={s.container}>
       <Swiper
         className={s.slider}
@@ -41,5 +44,6 @@ export default function MainSwiper() {
       </Swiper>
       <div id={s.containerForBullets}></div>
     </div>
+    </Container>
   );
 }

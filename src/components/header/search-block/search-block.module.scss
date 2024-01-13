@@ -1,0 +1,28 @@
+@import '@/styles/variables.scss';
+
+.searchBlockContainer {
+  z-index: 20;
+  display: block;
+  position: relative;
+  >button{
+    &:hover {
+      background-color: transparent;
+    }
+  }
+}
+.block {
+  position: absolute;
+  background-color: $color_white;
+  width: 300px;
+  height: 30px;
+  top: .9rem;
+  right: 0;
+  //top: 24px;
+  z-index: 20;
+ // background-color: $color_white;
+ // border-radius: $br-small;
+  //padding: 0.75rem 0;
+ // box-shadow: $shadow-blue-gray-a;
+ // color: $color_gray;
+  //font-size: 0.8rem;
+}

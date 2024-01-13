@@ -4,7 +4,7 @@ import { useEffect, useState, RefObject } from 'react';
 interface ScrollOptions {
   offset?: number;
 }
-//
+
 export const useScroll = ({ offset = 0 }: ScrollOptions = {}) => {
   const [isScrolled, setIsScrolled] = useState(false);
   useEffect(() => {
@@ -33,20 +33,17 @@ export const useClickOutside = (ref: RefObject<HTMLElement>, callback: () => voi
   useEffect(() => {
     const options: AddEventListenerOptions | boolean = { passive: true };
     document.addEventListener('mousedown', handleClickOutside, options);
-
     return () => {
       document.removeEventListener('mousedown', handleClickOutside, options);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ref, callback]);
 };
 
 //відміна scroll для body
 export const useBodyScrollLock = (isActive: boolean) => {
-
   useEffect(() => {
     if (isActive) {
-      let paddingForScroll = window.innerWidth - document.body.offsetWidth + 'px';
+      const paddingForScroll = window.innerWidth - document.body.offsetWidth + 'px';
       document.body.classList.add('noScroll');
       document.body.style.paddingRight = paddingForScroll;
       return () => {

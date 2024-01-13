@@ -1,41 +1,80 @@
-'use client'
-import React from 'react';
+'use client';
+import React, { useState } from 'react';
 import Link from 'next/link';
+import { useMediaQuery } from 'react-responsive';
 import Container from '@/components/ui/container/container';
+import CatalogBlock from '@/components/header/catalog-block/catalog-block';
+import SearchBlock from '@/components/header/search-block/search-block';
+import MobMenu from '@/components/header/mob-menu/mob-menu';
 import { Icons } from '@/components/ui/icons/icons';
-import {useScroll} from '@/hooks/hooks';
+import { useScroll } from '@/hooks/hooks';
 import dynamic from 'next/dynamic';
-const ButtonIcon = dynamic(() => import('@/components/ui/button-icon/button-icon'), { ssr: false })
+const ButtonIcon = dynamic(() => import('@/components/ui/button-icon/button-icon'), { ssr: false });
 import { navList } from '@/data/constants';
 import useCartStore from '@/store/cartStore';
 import useFavoriteStore from '@/store/favoriteStore';
 import s from './header2.module.scss';
 
-export default function Header2 () {
+export default function Header2() {
+  const isLaptop = useMediaQuery({ minWidth: 1024 });
   const isScrolled = useScroll({ offset: 20 });
-  const {cartProducts, toggleCartVisibility } = useCartStore();
-  const favoriteCount = useFavoriteStore(state=> state.favoriteProducts.length)
+  const { cartProducts, toggleCartVisibility } = useCartStore();
+  const favoriteCount = useFavoriteStore(state => state.favoriteProducts.length);
   const cartCount = cartProducts.length;
+  const [showMobMenu, setShowMobMenu] = useState(false);
+  const closeMobMenu = () => {
+    setShowMobMenu(false);
+  };
 
   return (
-    <div className={`${s.header2} ${isScrolled ? s.fixedHeader : ''}`}>
-      <Container>
-        <div className={s.content}>
-          <Link href='/' className={`${s.logo} ${isScrolled ? s.hide : ''}`}>Logo</Link>
-          <nav className={s.nav}>
-            {navList.map(item => (
-              <Link key={item.id} href={item.url} className={s.listItem}>
-                {item.title}
-              </Link>
-            ))}
-          </nav>
-          <div className={s.buttonsIcons}>
-            <ButtonIcon size='large' customClass='accent' count={favoriteCount}><Icons.favoriteOutlined size="medium" /></ButtonIcon>
-            <ButtonIcon size='large' customClass='accent' onClick={toggleCartVisibility} count={cartCount}><Icons.cartOutlined size="medium" /></ButtonIcon>
+    <>
+      <div className={`${s.header2} ${isScrolled ? s.fixedHeader : ''}`}>
+        <Container>
+          <div className={s.content}>
+            {isLaptop ? (
+              <>
+                <Link href="/" className={`${s.logo} ${isScrolled ? s.hide : ''}`}>
+                  Logo
+                </Link>
+                <CatalogBlock />
+                <nav className={s.nav}>
+                  {navList.map(item => (
+                    <Link key={item.id} href={item.url} className={s.listItem}>
+                      <span>{item.title}</span>
+                    </Link>
+                  ))}
+                </nav>
+              </>
+            ) : (
+              <>
+                <button
+                  className={s.mobMenuButton}
+                  onClick={() => {
+                    setShowMobMenu(true);
+                  }}
+                >
+                  <Icons.menu />
+                  Меню
+                </button>
+                <div>Logo</div>
+              </>
+            )}
+
+            <div className={s.buttonsIcons}>
+              <SearchBlock />
+              <span></span>
+              <ButtonIcon size="large" customClass="accent" count={favoriteCount}>
+                <Icons.favoriteOutlined size="medium" />
+              </ButtonIcon>
+              <span></span>
+              <ButtonIcon size="large" customClass="accent" onClick={toggleCartVisibility} count={cartCount}>
+                <Icons.cartOutlined size="medium" />
+              </ButtonIcon>
+            </div>
           </div>
-          
-        </div>
-      </Container>
-    </div>
+        </Container>
+      </div>
+      <MobMenu showMobMenu={showMobMenu} closeMobMenu={closeMobMenu} />
+    </>
   );
 }

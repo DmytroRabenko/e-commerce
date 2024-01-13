@@ -1,4 +1,13 @@
 @import '@/styles/variables.scss';
 .header {
   width: 100%;
+  > div:first-child {
+    display: none;
+  }
+
+  @media screen and (min-width: 1024px) {
+    >div:first-child{
+      display: flex;
+    }
+  }
 }

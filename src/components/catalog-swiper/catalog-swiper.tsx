@@ -1,8 +1,8 @@
 'use client';
-import { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import Container from '@/components/ui/container/container';
 import dynamic from 'next/dynamic';
-const ProductCard = dynamic(()=> import('@/components/product-card/product-card'), {ssr: false}) ;
+const ProductCard = dynamic(() => import('@/components/product-card/product-card'), { ssr: false });
 //import ProductCard from '@/components/product-card/product-card';
 import ButtonIcon from '@/components/ui/button-icon/button-icon';
 import useServicesStore from '@/store/serviseStore';
@@ -25,20 +25,16 @@ const CatalogSwiper: React.FC<CatalogSwiperProps> = ({ title, category }) => {
   const swiperRef = useRef<any>(undefined);
   const [products, setProducts] = useState<Product[]>([]);
   const { getCategoryProducts } = useServicesStore();
-  const [loading, setLoading] = useState('loading');
-  const [page, setPage] = useState(1);
-  const [limit, setLimit] = useState('20');
+  const page = 1;
+  const limit = '20';
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        setLoading('loading');
         const result = await getCategoryProducts(category, page, limit);
         setProducts(result);
-        setLoading('success');
       } catch (error) {
         console.error('Error fetching data:', error);
-        setLoading('error');
       }
     };
 

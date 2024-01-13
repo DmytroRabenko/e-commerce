@@ -1,3 +1,5 @@
+'use client'
+import React from 'react'; 
 import dynamic from 'next/dynamic';
 const MainSwiper = dynamic(() => import('@/components/main/main-swiper/main-swiper'), { ssr: false });
 const ViewedSwiper = dynamic(() => import('@/components/main/viewed/viewed-swiper'), { ssr: false });
