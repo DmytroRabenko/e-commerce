@@ -1,14 +1,18 @@
-'use client';
+'use client'
 import React, { useState } from 'react';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import { useMediaQuery } from 'react-responsive';
 import Container from '@/components/ui/container/container';
-import CatalogBlock from '@/components/header/catalog-block/catalog-block';
-import SearchBlock from '@/components/header/search-block/search-block';
-import MobMenu from '@/components/header/mob-menu/mob-menu';
+const CatalogBlock = dynamic(() => import('@/components/header/catalog-block/catalog-block'), { ssr: false });
+//import CatalogBlock from '@/components/header/catalog-block/catalog-block';
+const SearchBlock = dynamic(() => import('@/components/header/search-block/search-block'), { ssr: false });
+//import SearchBlock from '@/components/header/search-block/search-block';
+const MobMenu = dynamic(() => import('@/components/header/mob-menu/mob-menu'), { ssr: false });
+//import MobMenu from '@/components/header/mob-menu/mob-menu';
 import { Icons } from '@/components/ui/icons/icons';
 import { useScroll } from '@/hooks/hooks';
-import dynamic from 'next/dynamic';
+
 const ButtonIcon = dynamic(() => import('@/components/ui/button-icon/button-icon'), { ssr: false });
 import { navList } from '@/data/constants';
 import useCartStore from '@/store/cartStore';
