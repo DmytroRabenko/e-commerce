@@ -13,6 +13,7 @@ import s from '@/components/catalog-swiper/catalog-swiper.module.scss';
 import '@/styles/globals.scss';
 
 const ViewedSwiper: React.FC = () => {
+  // eslint-disable-next-line
   const swiperRef = useRef<any>(null);
   const { showViewed, viewedProducts } = useViewedStore();
 

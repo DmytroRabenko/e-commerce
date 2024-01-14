@@ -20,8 +20,9 @@ interface CatalogSwiperProps {
   title?: string;
   category: string;
 }
-
+// eslint-disable-next-line
 const CatalogSwiper: React.FC<CatalogSwiperProps> = ({ title, category }) => {
+  // eslint-disable-next-line
   const swiperRef = useRef<any>(undefined);
   const [products, setProducts] = useState<Product[]>([]);
   const { getCategoryProducts } = useServicesStore();

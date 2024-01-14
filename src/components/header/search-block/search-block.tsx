@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 //import Link from 'next/link';
 import { useClickOutside } from '@/hooks/hooks';
 //import Button from '@/components/ui/button/button';
@@ -14,7 +14,7 @@ const SearchBlock = () => {
   const [value, setValue] = useState('');
   const [data, setData] = useState([]);
 
-  const handleChange = event => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.value.length > 1) {
       setVisible(true);
     } else {
