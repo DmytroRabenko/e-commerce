@@ -27,5 +27,8 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['@typescript-eslint', 'react'],
-  rules: {},
+  rules: {
+    'react/no-unescaped-entities': 'off',
+    '@next/next/no-page-custom-font': 'off',
+  },
 };
