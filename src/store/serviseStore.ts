@@ -4,7 +4,7 @@ import { Product } from '@/types/types';
 
 interface ServicesStore {
   getAllProducts: () => Promise<Product[]>;
-  getCategoryProducts: (category: string, page:number, limit: string) => Promise<Product[]>;
+  getCategoryProducts: (category: string, page: number, limit: string) => Promise<Product[]>;
   getProductById: (id: string) => Promise<Product>;
 }
 
@@ -12,7 +12,7 @@ interface CustomError extends Error {
   message: string;
 }
 
-const useServicesStore = create<ServicesStore>((set) => ({
+const useServicesStore = create<ServicesStore>(set => ({
   getAllProducts: async () => {
     try {
       const res = await axios.get(`/catalog`);
@@ -29,7 +29,7 @@ const useServicesStore = create<ServicesStore>((set) => ({
       throw new Error(error?.response?.data?.message);
     }
   },
-  getProductById: async (id) => {
+  getProductById: async id => {
     try {
       const res = await axios.get(`/catalog/${id}`);
       return res.data;

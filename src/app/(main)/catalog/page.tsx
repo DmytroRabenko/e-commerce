@@ -9,7 +9,6 @@ export default async function CatalogPage() {
     <Container>
       <div>breadcrumbs/breadcrumbs</div>
       <div className={s.catalog}>Catalog</div>
-
       <Catalog/>
     </Container>
   );

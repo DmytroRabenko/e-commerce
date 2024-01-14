@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React, { useState } from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
@@ -40,8 +40,9 @@ export default function Header2() {
                 <Link href="/" className={`${s.logo} ${isScrolled ? s.hide : ''}`}>
                   Logo
                 </Link>
-                <CatalogBlock />
+
                 <nav className={s.nav}>
+                  <CatalogBlock />
                   {navList.map(item => (
                     <Link key={item.id} href={item.url} className={s.listItem}>
                       <span>{item.title}</span>
@@ -82,3 +83,4 @@ export default function Header2() {
     </>
   );
 }
+/*  */

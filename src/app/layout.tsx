@@ -1,4 +1,4 @@
-import { ReactNode, Suspense } from 'react';
+import React, { Suspense } from 'react';
 import Providers from '@/services/providers';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';

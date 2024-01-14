@@ -4,15 +4,13 @@ import { Product } from '@/types/types';
 interface StateStore {
   products: Product[];
   viewProducts: Product[];
-  product: {};
 }
 
-const useStateStore = create<StateStore>((set, get) => {
+const useStateStore = create<StateStore>(() => {
 
     return {
       products: [],
       viewProducts: [],
-      product: {},
 
 
     }
