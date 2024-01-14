@@ -5,11 +5,8 @@ import dynamic from 'next/dynamic';
 import { useMediaQuery } from 'react-responsive';
 import Container from '@/components/ui/container/container';
 const CatalogBlock = dynamic(() => import('@/components/header/catalog-block/catalog-block'), { ssr: false });
-//import CatalogBlock from '@/components/header/catalog-block/catalog-block';
 const SearchBlock = dynamic(() => import('@/components/header/search-block/search-block'), { ssr: false });
-//import SearchBlock from '@/components/header/search-block/search-block';
 const MobMenu = dynamic(() => import('@/components/header/mob-menu/mob-menu'), { ssr: false });
-//import MobMenu from '@/components/header/mob-menu/mob-menu';
 import { Icons } from '@/components/ui/icons/icons';
 import { useScroll } from '@/hooks/hooks';
 
