@@ -64,11 +64,11 @@ export default function Header2() {
 
             <div className={s.buttonsIcons}>
               <SearchBlock />
-              <span></span>
+              <span className={s.border}></span>
               <ButtonIcon size="large" customClass="accent" count={favoriteCount}>
                 <Icons.favoriteOutlined size="medium" />
               </ButtonIcon>
-              <span></span>
+              <span className={s.border}></span>
               <ButtonIcon size="large" customClass="accent" onClick={toggleCartVisibility} count={cartCount}>
                 <Icons.cartOutlined size="medium" />
               </ButtonIcon>

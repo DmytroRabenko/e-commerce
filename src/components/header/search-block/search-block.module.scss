@@ -4,7 +4,7 @@
   z-index: 20;
   display: block;
   position: relative;
-  >button{
+  > button {
     &:hover {
       background-color: transparent;
     }
@@ -13,16 +13,99 @@
 .block {
   position: absolute;
   background-color: $color_white;
-  width: 300px;
-  height: 30px;
-  top: .9rem;
+  top: 0;
   right: 0;
-  //top: 24px;
+  //right: 12.3rem;
   z-index: 20;
- // background-color: $color_white;
- // border-radius: $br-small;
-  //padding: 0.75rem 0;
- // box-shadow: $shadow-blue-gray-a;
- // color: $color_gray;
-  //font-size: 0.8rem;
+  transform: translateX(100%); // початковий зсув вгору для ефекту випливання
+  opacity: 0; // блок за замовчуванням прихований
+  transition: all linear .8s; // плавний перехід для анімації
+  &.visible {
+    z-index: 30;
+   // visibility: visible;
+    right: 0;
+    transform: translateX(0); // переміщення блока вниз при відображенні
+    opacity: 1; // показати блок
+
+  }
+
+  //Поле з інпут
+  .search {
+    position: relative;
+    width: 500px;
+    // border: 1px solid $color_white;
+    background-color: $color_green;
+    //border-radius: $br-small;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+    @media screen and (min-width: 1024px) {
+     border-radius: $br-small;
+      
+    }
+    .input {
+      position: relative;
+      color: $color_gray;
+      height: 2rem;
+      width: 450px;
+      padding: 0.2rem;
+      border-radius: $br-small;
+      border: 2px solid transparent;
+      box-shadow: $shadow-blue-gray-a;
+      &::placeholder {
+        color: $color_gray;
+      }
+      &:focus {
+        border-color: transparent; 
+        outline: none;
+      }
+    }
+    >svg, .clear{
+      background-color: transparent;
+      position: absolute;
+      right: 3rem;
+      color: $color_gray;
+      cursor: pointer;
+    }
+    button {
+      color: $color_white;
+      :hover{
+        svg{
+          transform: scale(1.2);
+        }
+      }
+    }
+    .close{
+      cursor: pointer;
+    }
+  }
+  //додаткове вікно
+  .searchList {
+    width: 450px;
+    color: $color_gray;
+    background-color: $color_white;
+    z-index: 30;
+    padding: 1rem;
+    border-radius: $br-small;
+    box-shadow: $shadow-blue-gray-a;
+    position: absolute;
+    left: 0.5rem;
+  }
+}
+
+.cartEnter {
+  transform: translateX(100%);
+}
+.cartEnterActive {
+  transform: translateX(0);
+  transition: all ease-in 1s;
+}
+.cartExit {
+  transform: translateX(0);
+}
+.cartExitActive {
+  transform: translateX(100%);
+  transition: all ease-in 1s;
 }

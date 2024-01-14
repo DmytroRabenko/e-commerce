@@ -81,6 +81,7 @@
       }
     }
     .buttonsIcons {
+      
       display: flex;
       align-items: center;
       >:first-child, >:nth-child(2) {
@@ -108,9 +109,10 @@
         > button {
           margin-left: 1rem;
         }
-        > span {
+        .border {
           display: none;
         }
+        
       }
     }
   }

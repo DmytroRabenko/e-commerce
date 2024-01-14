@@ -36,40 +36,59 @@ const SearchBlock = () => {
         <Icons.search size="medium" />
       </ButtonIcon>
 
-      {showSerchBlock && (
-        <div className={s.block}>
-          <form autoComplete="off" className={s.search__container}>
-            <div className={s.search}>
-              <Icons.search />
-              <input
-                value={value}
-                onChange={handleChange}
-                name="search"
-                className={s.input}
-                placeholder="Пошук по каталогу"
-              />
+      <div className={`${s.block} ${showSerchBlock ? s.visible : ''}`}>
+        <form autoComplete="off" className={s.search__container}>
+          <div className={s.search}>
+            <input
+              value={value}
+              onChange={handleChange}
+              name="search"
+              className={s.input}
+              placeholder="Пошук по каталогу"
+            />
+            {value === '' ? (
+              <Icons.search size="small" />
+            ) : (
+              <button
+                className={s.clear}
+                onClick={() => {
+                  setValue('');
+                  setVisible(false);
+                }}
+              >
+                <Icons.close size="small" />
+              </button>
+            )}
+            <div
+              className={s.close}
+              onClick={() => {
+                setVisible(false);
+                setShowSearchBlock(false);
+              }}
+            >
+              <Icons.close />
             </div>
-          </form>
-          {visible && (
-            <div className={s.search__list}>
-              {Array.isArray(data) && data.length > 0 ? (
-                <>
-                  <div className={s.title}>
-                    Знайдено <span>{data.length}</span> співпадінь:
-                  </div>
-                  <ul>
-                    {data.map((item, i) => (
-                      <div key={i}>результат пошуку{i}</div>
-                    ))}
-                  </ul>
-                </>
-              ) : (
-                <div className={s.notFined}>За даним запитом нічого не знайдено</div>
-              )}
-            </div>
-          )}
-        </div>
-      )}
+          </div>
+        </form>
+        {visible && (
+          <div className={s.searchList}>
+            {Array.isArray(data) && data.length > 0 ? (
+              <>
+                <div className={s.title}>
+                  Знайдено <span>{data.length}</span> співпадінь:
+                </div>
+                <ul>
+                  {data.map((item, i) => (
+                    <div key={i}>результат пошуку{i}</div>
+                  ))}
+                </ul>
+              </>
+            ) : (
+              <div className={s.notFined}>За даним запитом нічого не знайдено</div>
+            )}
+          </div>
+        )}
+      </div>
     </div>
   );
 };
