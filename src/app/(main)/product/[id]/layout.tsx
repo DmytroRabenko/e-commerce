@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'; //, { Suspense }
+import { Suspense } from 'react'; //, { Suspense }
 import Image from 'next/image';
 import { Metadata } from 'next'; //, ResolvingMetadata
 import Container from '@/components/ui/container/container';

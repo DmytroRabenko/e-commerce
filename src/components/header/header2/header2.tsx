@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { useMediaQuery } from 'react-responsive';
@@ -80,4 +80,3 @@ export default function Header2() {
     </>
   );
 }
-/*  */

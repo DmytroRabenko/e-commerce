@@ -1,5 +1,5 @@
 'use client';
-import React, { ButtonHTMLAttributes, ReactNode} from 'react';
+import { ButtonHTMLAttributes, ReactNode} from 'react';
 import s from './button-icon.module.scss';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

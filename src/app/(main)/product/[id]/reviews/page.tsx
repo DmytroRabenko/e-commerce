@@ -1,5 +1,3 @@
-import React from 'react'; //, { Suspense }
-
 const ProductPageReviews = async () => {
   
   return (

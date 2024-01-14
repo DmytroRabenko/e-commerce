@@ -1,4 +1,3 @@
-import React from 'react'; //, { Suspense }
 import { getProductById } from '@/services/services';
 import s from './product-page.module.scss';
 

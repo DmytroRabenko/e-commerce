@@ -1,4 +1,3 @@
-import React from 'react';
 import Rating from '@/components/ui/rating/rating';
 import s from './product-card-reviews.module.scss';
 

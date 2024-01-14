@@ -1,5 +1,4 @@
 'use client';
-import React from 'react';
 import useCartStore from '@/store/cartStore';
 import Button from '@/components/ui/button/button';
 import { Icons } from '@/components/ui/icons/icons';

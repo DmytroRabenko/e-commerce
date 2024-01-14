@@ -1,5 +1,5 @@
 'use client';
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import Container from '@/components/ui/container/container';
 import ProductCard from '@/components/product-card/product-card';
 import ButtonIcon from '@/components/ui/button-icon/button-icon';

@@ -1,4 +1,3 @@
-import React from 'react';
 import dynamic from 'next/dynamic';
 import Header1 from '@/components/header/header1/header1';
 const Header2 = dynamic(() => import('@/components/header/header2/header2'), { ssr: false });

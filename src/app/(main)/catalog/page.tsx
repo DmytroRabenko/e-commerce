@@ -1,4 +1,3 @@
-import React from 'react';
 import Container from '@/components/ui/container/container';
 import Catalog from '@/components/catalog/catalog';
 

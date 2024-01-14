@@ -14,7 +14,9 @@
     "@tanstack/react-query-devtools": "^5.17.8",
     "@tanstack/react-query-next-experimental": "^5.17.9",
     "axios": "^1.6.3",
+    "eslint-config-next": "^14.0.4",
     "next": "14.0.4",
+    "prop-types": "^15.8.1",
     "react": "^18",
     "react-dom": "^18",
     "react-responsive": "^9.0.2",
@@ -23,17 +25,13 @@
     "zustand": "^4.4.7"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "^14.0.4",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@types/react-transition-group": "^4.4.10",
     "@typescript-eslint/eslint-plugin": "^6.18.1",
     "@typescript-eslint/parser": "^6.18.1",
-    "eslint": "^8.56.0",
-    "eslint-config-next": "14.0.4",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-react": "^7.33.2",
     "sass": "^1.69.6",
     "typescript": "^5"
   },

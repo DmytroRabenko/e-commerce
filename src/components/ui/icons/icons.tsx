@@ -1,4 +1,3 @@
-import React from 'react';
 import s from './icons.module.scss';
 
 interface IconProps extends React.HTMLAttributes<SVGElement> {

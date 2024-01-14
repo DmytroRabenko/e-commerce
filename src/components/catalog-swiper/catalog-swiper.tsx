@@ -1,5 +1,5 @@
 'use client';
-import React, { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import Container from '@/components/ui/container/container';
 import dynamic from 'next/dynamic';
 const ProductCard = dynamic(() => import('@/components/product-card/product-card'), { ssr: false });

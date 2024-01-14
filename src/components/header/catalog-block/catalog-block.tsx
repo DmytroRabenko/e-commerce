@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import Link from 'next/link';
 import { useClickOutside } from '@/hooks/hooks';
 import Button from '@/components/ui/button/button';
