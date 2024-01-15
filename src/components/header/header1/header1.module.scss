@@ -12,22 +12,26 @@
     align-items: center;
     justify-content: space-between;
   }
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .listItem {
+      text-align: center;
+      font-weight: 500;
+     // font-size: 0.9rem;
+      padding: 0 1rem;
+      transition: $transition;
+    }
+  }
+
   .user {
     height: 100%;
-    //background-color: $color_white;
-   // color: $color_gray;
     padding: 0.25rem 0.5rem 0.25rem 1.5rem;
     display: flex;
     align-items: center;
     position: relative;
-    /*
-    border: 1px solid $color_red;
-    background: $linear-gradient-red;
-    color: $color_white;
-    &:hover {
-      background: $linear-gradient-red-reverce;
-    }
-    */
     svg {
       position: absolute;
       left: 0;

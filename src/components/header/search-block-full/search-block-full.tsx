@@ -5,9 +5,9 @@ import { useClickOutside } from '@/hooks/hooks';
 //import Button from '@/components/ui/button/button';
 import ButtonIcon from '@/components/ui/button-icon/button-icon';
 import { Icons } from '@/components/ui/icons/icons';
-import s from './search-block.module.scss';
+import s from './search-block-full.module.scss';
 
-const SearchBlock = () => {
+const SearchBlockFull = () => {
   const blockRef = useRef<HTMLDivElement>(null);
   const [showSerchBlock, setShowSearchBlock] = useState(false);
   const [visible, setVisible] = useState(false);
@@ -26,54 +26,36 @@ const SearchBlock = () => {
 
   useClickOutside(blockRef, () => {
     if (showSerchBlock) {
+      setValue('');
       setVisible(false);
-      setShowSearchBlock(false);
     }
   });
 
   return (
     <div className={`${s.searchBlockContainer} ${showSerchBlock ? s.visible : ''}`} ref={blockRef}>
-      {!showSerchBlock ? (
-        <ButtonIcon onClick={() => setShowSearchBlock(!showSerchBlock)} size="large" customClass="accent">
-          <Icons.search size="medium" />
-        </ButtonIcon>
-      ) : (
-        <ButtonIcon
-          onClick={() => {
-            setVisible(false);
-            setShowSearchBlock(false);
-          }}
-          size="large"
-          customClass="accent"
-        >
-          <Icons.close size="medium" />
-        </ButtonIcon>
-      )}
-      <div className={s.searchBlock}>
-        <div className={`${s.block} ${showSerchBlock ? s.visible : ''}`}>
-          <form autoComplete="off">
-            <div className={s.search}>
-              <input
-                value={value}
-                onChange={handleChange}
-                name="search"
-                className={s.input}
-                placeholder="Пошук по каталогу"
+      <div className={`${s.block} ${showSerchBlock ? s.visible : ''}`}>
+        <form autoComplete="off">
+          <div className={s.search}>
+            <input
+              value={value}
+              onChange={handleChange}
+              name="search"
+              className={s.input}
+              placeholder="Пошук по каталогу"
+            />
+            {value === '' ? (
+              <Icons.search size="small" />
+            ) : (
+              <Icons.close
+                size="small"
+                onClick={() => {
+                  setValue('');
+                  setVisible(false);
+                }}
               />
-              {value === '' ? (
-                <Icons.search size="small" />
-              ) : (
-                <Icons.close
-                  size="small"
-                  onClick={() => {
-                    setValue('');
-                    setVisible(false);
-                  }}
-                />
-              )}
-            </div>
-          </form>
-        </div>
+            )}
+          </div>
+        </form>
       </div>
 
       {visible && (
@@ -98,4 +80,4 @@ const SearchBlock = () => {
   );
 };
 
-export default SearchBlock;
+export default SearchBlockFull;

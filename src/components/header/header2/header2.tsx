@@ -6,6 +6,9 @@ import { useMediaQuery } from 'react-responsive';
 import Container from '@/components/ui/container/container';
 const CatalogBlock = dynamic(() => import('@/components/header/catalog-block/catalog-block'), { ssr: false });
 const SearchBlock = dynamic(() => import('@/components/header/search-block/search-block'), { ssr: false });
+const SearchBlockFull = dynamic(() => import('@/components/header/search-block-full/search-block-full'), {
+  ssr: false,
+});
 const MobMenu = dynamic(() => import('@/components/header/mob-menu/mob-menu'), { ssr: false });
 import { Icons } from '@/components/ui/icons/icons';
 import { useScroll } from '@/hooks/hooks';
@@ -15,6 +18,7 @@ import { navList } from '@/data/constants';
 import useCartStore from '@/store/cartStore';
 import useFavoriteStore from '@/store/favoriteStore';
 import s from './header2.module.scss';
+import Button from '@/components/ui/button/button';
 
 export default function Header2() {
   const isLaptop = useMediaQuery({ minWidth: 1024 });
@@ -37,15 +41,18 @@ export default function Header2() {
                 <Link href="/" className={`${s.logo} ${isScrolled ? s.hide : ''}`}>
                   Logo
                 </Link>
-
-                <nav className={s.nav}>
-                  <CatalogBlock />
-                  {navList.map(item => (
-                    <Link key={item.id} href={item.url} className={s.listItem}>
-                      <span>{item.title}</span>
-                    </Link>
-                  ))}
-                </nav>
+                <CatalogBlock />
+                <div className={s.buttonsIcons}>
+                  <SearchBlockFull />
+                  <span className={s.border}></span>
+                  <ButtonIcon size="large" customClass="accent" count={favoriteCount}>
+                    <Icons.favoriteOutlined size="medium" />
+                  </ButtonIcon>
+                  <span className={s.border}></span>
+                  <ButtonIcon size="large" customClass="accent" onClick={toggleCartVisibility} count={cartCount}>
+                    <Icons.cartOutlined size="medium" />
+                  </ButtonIcon>
+                </div>
               </>
             ) : (
               <>
@@ -58,21 +65,22 @@ export default function Header2() {
                   <Icons.menu />
                   Меню
                 </button>
-                <div>Logo</div>
+                <Link href="/" className={s.mobLogo}>
+                  MobLogo
+                </Link>
+                <div className={s.buttonsIcons}>
+                  <SearchBlock />
+                  <span className={s.border}></span>
+                  <ButtonIcon size="large" customClass="accent" count={favoriteCount}>
+                    <Icons.favoriteOutlined size="medium" />
+                  </ButtonIcon>
+                  <span className={s.border}></span>
+                  <ButtonIcon size="large" customClass="accent" onClick={toggleCartVisibility} count={cartCount}>
+                    <Icons.cartOutlined size="medium" />
+                  </ButtonIcon>
+                </div>
               </>
             )}
-
-            <div className={s.buttonsIcons}>
-              <SearchBlock />
-              <span className={s.border}></span>
-              <ButtonIcon size="large" customClass="accent" count={favoriteCount}>
-                <Icons.favoriteOutlined size="medium" />
-              </ButtonIcon>
-              <span className={s.border}></span>
-              <ButtonIcon size="large" customClass="accent" onClick={toggleCartVisibility} count={cartCount}>
-                <Icons.cartOutlined size="medium" />
-              </ButtonIcon>
-            </div>
           </div>
         </Container>
       </div>

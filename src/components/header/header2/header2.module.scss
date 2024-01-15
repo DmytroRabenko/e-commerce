@@ -19,8 +19,9 @@
     background-color: $color_white;
     color: $color_gray;
   }
+  //кнопка мобільного меню
   .mobMenuButton {
-    padding: 0.5rem 2rem;
+    padding: 0.5rem 1rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -28,14 +29,17 @@
     transition: $transition;
     border: 1px solid $color_white;
     border-radius: $br_small;
+    @media screen and (min-width: 768px) {
+      padding: 0.5rem 2rem;
+    }
     :hover {
-      // background: $linear-gradient-green-reverce;
       box-shadow: $shadow-blue-gray-n;
       svg {
         transform: scale(1.1);
       }
     }
   }
+  
   .content {
     display: flex;
     justify-content: space-between;
@@ -52,39 +56,18 @@
     .hide {
       display: none;
     }
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      .listItem {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-transform: uppercase;
-        text-align: center;
-        font-weight: 700;
-        font-size: 0.9rem;
-        padding: 0 1rem;
-        margin: 0 0.5rem;
-        transition: $transition;
-        span {
-          display: inline-block;
-          padding: 0.5rem 0;
-          border-bottom: 2px solid $color_white;
-          transition: $transition;
-        }
-        &:hover {
-          span {
-            border-bottom: 2px solid $color_green;
-          }
-        }
-      }
+    .mobLogo {
+      z-index: 10;
+      position: absolute;
+      left: 50vw;
+      transform: translate(-50%);
     }
+    
     .buttonsIcons {
-      
       display: flex;
       align-items: center;
-      >:first-child, >:nth-child(2) {
+      > :first-child,
+      > :nth-child(2) {
         display: none;
       }
       > span {
@@ -101,9 +84,10 @@
       }
 
       @media screen and (min-width: 768px) {
-        >:first-child, >:nth-child(2) {
+        > :first-child,
+        > :nth-child(2) {
           display: block;
-        }        
+        }
       }
       @media screen and (min-width: 1024px) {
         > button {
@@ -112,7 +96,6 @@
         .border {
           display: none;
         }
-        
       }
     }
   }
