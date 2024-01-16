@@ -10,15 +10,13 @@ const SearchBlockFull = dynamic(() => import('@/components/header/search-block-f
   ssr: false,
 });
 const MobMenu = dynamic(() => import('@/components/header/mob-menu/mob-menu'), { ssr: false });
+const ButtonIcon = dynamic(() => import('@/components/ui/button-icon/button-icon'), { ssr: false });
 import { Icons } from '@/components/ui/icons/icons';
 import { useScroll } from '@/hooks/hooks';
 
-const ButtonIcon = dynamic(() => import('@/components/ui/button-icon/button-icon'), { ssr: false });
-import { navList } from '@/data/constants';
 import useCartStore from '@/store/cartStore';
 import useFavoriteStore from '@/store/favoriteStore';
 import s from './header2.module.scss';
-import Button from '@/components/ui/button/button';
 
 export default function Header2() {
   const isLaptop = useMediaQuery({ minWidth: 1024 });
@@ -27,10 +25,13 @@ export default function Header2() {
   const favoriteCount = useFavoriteStore(state => state.favoriteProducts.length);
   const cartCount = cartProducts.length;
   const [showMobMenu, setShowMobMenu] = useState(false);
+  const [showSerchBlock, setShowSearchBlock] = useState(false);
   const closeMobMenu = () => {
     setShowMobMenu(false);
   };
-
+  const closeSearchBlock = () => {
+    setShowSearchBlock(false);
+  };
   return (
     <>
       <div className={`${s.header2} ${isScrolled ? s.fixedHeader : ''}`}>
@@ -38,12 +39,16 @@ export default function Header2() {
           <div className={s.content}>
             {isLaptop ? (
               <>
-                <Link href="/" className={`${s.logo} ${isScrolled ? s.hide : ''}`}>
+                <CatalogBlock />
+
+                <Link href="/" className={s.logo}>
                   Logo
                 </Link>
-                <CatalogBlock />
+
                 <div className={s.buttonsIcons}>
-                  <SearchBlockFull />
+                  <ButtonIcon onClick={() => setShowSearchBlock(!showSerchBlock)} size="large" customClass="accent">
+                    <Icons.search size="medium" />
+                  </ButtonIcon>
                   <span className={s.border}></span>
                   <ButtonIcon size="large" customClass="accent" count={favoriteCount}>
                     <Icons.favoriteOutlined size="medium" />
@@ -53,6 +58,7 @@ export default function Header2() {
                     <Icons.cartOutlined size="medium" />
                   </ButtonIcon>
                 </div>
+                <SearchBlockFull showSerchBlock={showSerchBlock} closeSearchBlock={closeSearchBlock} />
               </>
             ) : (
               <>

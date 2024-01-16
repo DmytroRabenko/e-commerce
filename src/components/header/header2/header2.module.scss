@@ -1,21 +1,24 @@
 @import '@/styles/variables.scss';
 
-.fixedHeader {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 10;
-  @media screen and (min-width: 1024px) {
-    border-bottom: 1px solid $color_lightgray;
-  }
-}
-
 .header2 {
+  //position: relative;
+  z-index: 10;
   background-color: $color_green;
   color: $color_white;
   transition: $transition;
-  padding: 0.5rem 0;
+  padding: 1rem 0;
+  &.fixedHeader {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    @media screen and (min-width: 1024px) {
+      border-bottom: 1px solid $color_lightgray;
+    }
+  }
+
   @media screen and (min-width: 1024px) {
+    border-bottom: 1px solid $color_lightgray;
     background-color: $color_white;
     color: $color_gray;
   }
@@ -39,20 +42,28 @@
       }
     }
   }
-  
+
   .content {
+   // z-index: 20;
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     .logo {
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%);
       display: block;
       width: 4rem;
       //height: 2rem;
+      z-index: 50;
       // background-image: url('/logo.png');
       // background-position: center;
       // background-size: contain;
       // background-repeat: no-repeat;
     }
+
     .hide {
       display: none;
     }
@@ -62,8 +73,9 @@
       left: 50vw;
       transform: translate(-50%);
     }
-    
+
     .buttonsIcons {
+      //z-index: 20;
       display: flex;
       align-items: center;
       > :first-child,

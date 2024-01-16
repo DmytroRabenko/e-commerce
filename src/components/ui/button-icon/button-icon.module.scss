@@ -2,7 +2,7 @@
 
 .button {
   position: relative;
-  width: 3rem;
+ // width: 3rem;
   height: 3rem;
   display: flex;
   align-items: center;
@@ -11,8 +11,13 @@
   overflow: hidden;
   transition: $transition;
   border-radius: $br_small;
+  .icon{
+    width: 3rem;
+    height: 3rem;
+  }
   svg{
     transition: $transition;
+    
   }
 }
 .count{

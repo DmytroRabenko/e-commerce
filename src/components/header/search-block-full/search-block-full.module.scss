@@ -1,68 +1,84 @@
 @import '@/styles/variables.scss';
 
 .searchBlockContainer {
-  position: relative;
-  display: block;
-  height: 3rem;
+  z-index: 10;
+  position: absolute;
+  left: -2rem;
+  top: 3rem;
+  width: 100vw;
+  background-color: $color_white;
+  border-top: $border;
+  border-bottom: $border;
+  padding: 1rem;
+  opacity: 0;
+  transition: opacity linear .5s;
+  transform: translatex(100%);//виправити
+  &.visible{
+   transform: translateY(0);
+   opacity: 1;
+  }
 }
 
 .block {
-  z-index: 10 !important;
-  width: 460px;
- // position: absolute;
-  //Блок з інпут
-  .search {
-    z-index: 10;
-    width: 100%;
-    height: 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.5rem;
-    > svg {
-      z-index: 15;
-      cursor: pointer;
-    }
-    @media screen and (min-width: 1024px) {
-      border-radius: $br-small;
-    }
-    .input {
-      background-color: $color_white;
-      color: $color_gray;
-      height: 2rem;
-      width: 410px;
-      padding: 0.2rem;
-      border-radius: $br-small;
-      border: 2px solid transparent;
-      box-shadow: $shadow-blue-gray-a;
-      &::placeholder {
-        color: $color_gray;
-      }
-      &:focus {
-        border-color: transparent;
-        outline: none;
-      }
-    }
+  position: relative;
+  margin: 0 auto;
+  width: 100vw;
+  >button{
+    color: $color_gray;
+    position: absolute;
+    right: 4rem;
+    top: 50%;
+    transform: translateY(-50%);
+  //  top: .3rem;
+  }
+  form{
+    width: 50vw;
+    position: relative;
+    margin: 0 auto;
     > svg {
       background-color: transparent;
       position: absolute;
-      right: 3rem;
-      color: $color_gray;
-      cursor: pointer;
+      right: 1rem;
+      top: .5rem;
+      color: $color_lightgray;
+      &.close{
+        cursor: pointer;
+        color: $color_gray;
+      }
     }
   }
+  @media screen and (min-width: 1024px) {
+    border-radius: $br-small;
+  }
+  .input {
+    background-color: $color_white;
+    font-size: 1.2rem;
+    color: $color_gray;
+    height: 2.5rem;
+    width: 50vw;
+    padding: 0.5rem;
+    border-radius: $br-small;
+    border: 2px solid transparent;
+    box-shadow: $shadow-blue-gray-a;
+    &::placeholder {
+      color: $color_gray;
+    }
+    &:focus {
+      border-color: transparent;
+      outline: none;
+    }
+  }
+
 }
 
 //поле виведення результатів пошуку
 .searchList {
-  position: absolute;
-  top: 50px;
-  right: 42px;
-  z-index: 50;
-  width: 410px;
+  width: 50vw;
+  margin: 0 auto;
+  z-index: 20;
   color: $color_gray;
   background-color: $color_white;
   padding: 1rem;
-  border-radius: $br-small;
-  box-shadow: $shadow-blue-gray-a;
+ // border-radius: $br-small;
+ // box-shadow: $shadow-blue-gray-a;
 }

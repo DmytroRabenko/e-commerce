@@ -1,15 +1,17 @@
 'use client';
 import { useState, useRef } from 'react';
-//import Link from 'next/link';
 import { useClickOutside } from '@/hooks/hooks';
-//import Button from '@/components/ui/button/button';
 import ButtonIcon from '@/components/ui/button-icon/button-icon';
 import { Icons } from '@/components/ui/icons/icons';
 import s from './search-block-full.module.scss';
 
-const SearchBlockFull = () => {
+interface SearchBlockFullProps {
+  showSerchBlock: boolean;
+  closeSearchBlock: () => void;
+}
+
+const SearchBlockFull: React.FC<SearchBlockFullProps>  = ({showSerchBlock, closeSearchBlock}) => {
   const blockRef = useRef<HTMLDivElement>(null);
-  const [showSerchBlock, setShowSearchBlock] = useState(false);
   const [visible, setVisible] = useState(false);
   const [value, setValue] = useState('');
   const [data, setData] = useState([]);
@@ -32,30 +34,32 @@ const SearchBlockFull = () => {
   });
 
   return (
-    <div className={`${s.searchBlockContainer} ${showSerchBlock ? s.visible : ''}`} ref={blockRef}>
-      <div className={`${s.block} ${showSerchBlock ? s.visible : ''}`}>
+    <div className={`${s.searchBlockContainer} ${showSerchBlock ? s.visible : ''}`} >
+      <div className={s.block} ref={blockRef}>
         <form autoComplete="off">
-          <div className={s.search}>
-            <input
-              value={value}
-              onChange={handleChange}
-              name="search"
-              className={s.input}
-              placeholder="Пошук по каталогу"
+          <input
+            value={value}
+            onChange={handleChange}
+            name="search"
+            className={s.input}
+            placeholder="Пошук по каталогу"
+          />
+          {value === '' ? (
+            <Icons.search className={s.search} size="medium" />
+          ) : (
+            <Icons.close
+              className={s.close}
+              size="medium"
+              onClick={() => {
+                setValue('');
+                setVisible(false);
+              }}
             />
-            {value === '' ? (
-              <Icons.search size="small" />
-            ) : (
-              <Icons.close
-                size="small"
-                onClick={() => {
-                  setValue('');
-                  setVisible(false);
-                }}
-              />
-            )}
-          </div>
+          )}
         </form>
+        <ButtonIcon onClick={closeSearchBlock} size="medium">
+          <Icons.close size='large'/>
+        </ButtonIcon>
       </div>
 
       {visible && (

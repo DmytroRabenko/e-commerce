@@ -2,8 +2,6 @@
 import { useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { useClickOutside, useBodyScrollLock } from '@/hooks/hooks';
-//import Link from 'next/link';
-//import Button from '@/components/ui/button/button';
 import ButtonIcon from '@/components/ui/button-icon/button-icon';
 import { Icons } from '@/components/ui/icons/icons';
 import s from './mob-menu.module.scss';

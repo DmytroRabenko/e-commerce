@@ -1,6 +1,7 @@
 @import '@/styles/variables.scss';
 
 .header1 {
+  z-index: 50;
   background-color: $color_green;
   color: $color_white;
   font-size: 0.9rem;
@@ -19,8 +20,6 @@
     align-items: center;
     .listItem {
       text-align: center;
-      font-weight: 500;
-     // font-size: 0.9rem;
       padding: 0 1rem;
       transition: $transition;
     }

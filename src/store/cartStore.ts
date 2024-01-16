@@ -78,7 +78,10 @@ const useCartStore = create<CartStore>()(
         return totalValue;
       },
     }),
-    { name: 'cart' }
+    {
+      name: 'cart',
+      partialize: (state) => ({ cartProducts: state.cartProducts }), //тільки ті ключі, які потрібно зберігати
+    }
   )
 );
 
