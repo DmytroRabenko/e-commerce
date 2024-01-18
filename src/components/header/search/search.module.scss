@@ -19,7 +19,7 @@
       color: $color_gray;
       border-color: transparent;
       outline: none;
-      border-bottom: $border;
+      border-bottom: 2px solid $color_lightgray;
       &::placeholder {
         color: $color_gray;
       }

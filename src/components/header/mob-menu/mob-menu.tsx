@@ -44,27 +44,35 @@ const MobMenu: React.FC<MobMenuProps> = ({ showMobMenu, closeMobMenu }) => {
               <Icons.close size="medium" />
             </ButtonIcon>
           </div>
-          <div>
+
+          <div className={s.search}>
             <Search />
           </div>
-          <div>
+
+          <div className={s.catalog}>
             <Button width="full" color="green">
               <Icons.menu />
               Каталог
             </Button>
           </div>
-          <div>
+
+          <div className={s.nav}>
             <NavList />
           </div>
-          <div>
+          <Link className={s.user} href="/login">
+            <Icons.person size="medium" />
+            <span>Вхід до кабінету</span>
+          </Link>
+          <div className={s.callback}>
             <CallbackList />
-            <div className={s.info}>
-              <Button width='full' color="green">
-                <Icons.phone />
-                Зворотній дзвінок
-              </Button>
-              <p>Працюємо щоденно з 9:00 до 18:00</p>
-            </div>
+          </div>
+
+          <div className={s.info}>
+            <Button width="full" color="green">
+              <Icons.phone />
+              Зворотній дзвінок
+            </Button>
+            <p>Працюємо щоденно з 9:00 до 18:00</p>
           </div>
         </div>
       </div>

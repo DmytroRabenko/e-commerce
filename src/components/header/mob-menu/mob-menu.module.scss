@@ -27,52 +27,80 @@
   height: 100vh;
   background-color: rgb(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
-  padding: 1.5rem 1rem 3rem;
-  >div{
-    width: 100%;
-    padding: .5rem 0;
-    border-top: $border;
-    margin: .5rem 0;
-    .title{
-      padding: 0;
-      margin: 0;
+  padding: 1.5rem 0 3rem;
+  overflow: auto;
+  .title {
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .search {
+    padding: 1rem 1rem 0;
+  }
+  .catalog {
+    margin: 1rem;
+  }
+
+  .nav {
+    nav {
+      a {
+        padding: 1rem;
+        border-top: $border;
+        transition: $transition;
+        &:last-child{
+          border-bottom: $border;
+        }
+        &:hover {
+          background-color: $color_lightgray;
+        }
+      }
     }
-    &:nth-child(1), &:nth-child(2), &:nth-child(3){
-      border-top: none;
+  }
+  .user{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    padding: 1rem;
+    border-bottom: $border;
+    svg{
+      color: $color_green;
+    }
+    &:hover {
+      background-color: $color_lightgray;
     }
 
+
+  }
+
+  .callback{
+    margin-top: 1rem;
+  }
+  
+  .info {
+    padding: 1rem;
+    > button {
+      margin-bottom: 1rem;
+    }
   }
   @media screen and (min-width: 768px) {
     width: 400px;
   }
-
-  .title{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 1rem;
+  &::-webkit-scrollbar {
+    width: 0.4rem;
   }
-  .nav{
-    list-style: none;
-    li{
-      padding: 1rem .5rem;
-      border-bottom: $border;
-    }
+  &::-webkit-scrollbar-track {
+    background-color: $color_lightgray;
+    border-radius: $br-small;
   }
-  .info{
-    >button{
-      margin: .5rem 0;
-    }
+  &::-webkit-scrollbar-thumb {
+    background: $linear-gradient-green;
+    border-radius: $br-small;
   }
-
+  &::-webkit-scrollbar-thumb:hover {
+    background: $linear-gradient-green-reverce;
+  }
 }
-
-
-
-
-
-
-
 
 .cartEnter {
   transform: translateX(-100%);

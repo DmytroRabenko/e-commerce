@@ -3,13 +3,17 @@
   list-style: none;
   li {
     position: relative;
-    padding: 0 0.75rem;
-    &:hover {
-      background-color: $color_lightgray;
-    }
     a {
       display: block;
-      padding: 0.5rem 0.5rem 0.5rem 2rem;
+      transition: $transition;
+      padding: 0.5rem 0.5rem 0.5rem 2.75rem;
+      // padding: 0.75rem 0.75rem 0.75rem 2.75rem;
+      /* @media screen and (min-width: 1024px) {
+        padding: 0.5rem 0.5rem 0.5rem 2.75rem;
+      }*/
+      &:hover {
+        background-color: $color_lightgray;
+      }
       &::before {
         content: '';
         position: absolute;
