@@ -43,7 +43,6 @@ const Search = () => {
             className={s.close}
             size="medium"
             onClick={() => {
-              console.log('click');
               setValue('');
               setVisible(false);
             }}

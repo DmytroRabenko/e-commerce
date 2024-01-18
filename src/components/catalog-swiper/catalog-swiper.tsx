@@ -20,9 +20,9 @@ interface CatalogSwiperProps {
   title?: string;
   category: string;
 }
-// eslint-disable-next-line
+
 const CatalogSwiper: React.FC<CatalogSwiperProps> = ({ title, category }) => {
-  // eslint-disable-next-line
+
   const swiperRef = useRef<any>(undefined);
   const [products, setProducts] = useState<Product[]>([]);
   const { getCategoryProducts } = useServicesStore();
@@ -63,7 +63,7 @@ const CatalogSwiper: React.FC<CatalogSwiperProps> = ({ title, category }) => {
           className={s.slider}
           modules={[Pagination]}
           pagination={{ clickable: true }}
-          spaceBetween={20}
+          spaceBetween={10}
           slidesPerView={1}
           slidesPerGroup={1}
           loopAddBlankSlides
@@ -76,14 +76,17 @@ const CatalogSwiper: React.FC<CatalogSwiperProps> = ({ title, category }) => {
             768: {
               slidesPerView: 3,
               slidesPerGroup: 3,
+              spaceBetween: 16,
             },
             1024: {
               slidesPerView: 4,
               slidesPerGroup: 5,
+              spaceBetween: 20,
             },
             1280: {
               slidesPerView: 5,
               slidesPerGroup: 5,
+              spaceBetween: 20,
             },
           }}
         >

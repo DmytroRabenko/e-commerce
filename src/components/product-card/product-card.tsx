@@ -11,8 +11,7 @@ import s from './product-card.module.scss';
 interface ProductCardProps {
   product: Product;
 }
-// eslint-disable-next-line
-const ProductCard: React.FC<ProductCardProps> = ({ product }) => {// eslint-disable-next-line
+const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const { title, category, brand, seria, price, images } = product;
 
   return (
@@ -20,9 +19,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {// eslint-disa
       <div className={s.imageContainer}>
         <Image className={s.image} src={images[0]} alt={title} fill={true} />
       </div>
-      {/* eslint-disable-next-line*/}
+    
       <Link href={`/product/${product.id}`} className={s.description}>
-        {/* eslint-disable-next-line*/}
+      
         <ProductCardRewiews reviewsCount={product?.reviews?.length} ratingValue={4} />
         <h6>
           {title}

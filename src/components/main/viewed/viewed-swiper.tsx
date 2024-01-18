@@ -13,7 +13,6 @@ import s from '@/components/catalog-swiper/catalog-swiper.module.scss';
 import '@/styles/globals.scss';
 
 const ViewedSwiper: React.FC = () => {
-  // eslint-disable-next-line
   const swiperRef = useRef<any>(null);
   const { showViewed, viewedProducts } = useViewedStore();
 
@@ -39,7 +38,7 @@ const ViewedSwiper: React.FC = () => {
             className={s.slider}
             modules={[Pagination]}
             pagination={{ clickable: true }}
-            spaceBetween={20}
+            spaceBetween={10}
             slidesPerView={1}
             slidesPerGroup={1}
             loopAddBlankSlides
@@ -53,14 +52,17 @@ const ViewedSwiper: React.FC = () => {
               768: {
                 slidesPerView: 3,
                 slidesPerGroup: 3,
+                spaceBetween: 16,
               },
               1024: {
                 slidesPerView: 4,
                 slidesPerGroup: 5,
+                spaceBetween: 20,
               },
               1280: {
                 slidesPerView: 5,
                 slidesPerGroup: 5,
+                spaceBetween: 20,
               },
             }}
           >
