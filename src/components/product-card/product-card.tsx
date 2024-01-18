@@ -1,18 +1,21 @@
-//'use client'
+'use client'
 import Image from 'next/image';
 import Link from 'next/link';
+import useViewedStore from '@/store/viewedStore';
 import ProductBadge from '@/components/product-card/product-badge/product-badge';
 import FavoriteIcon from '@/components/product-card/favorite-icon/favorite-icon';
 import ProductBuy from '@/components/product-card/product-buy/product-buy';
 import ProductCardRewiews from '@/components/product-card/product-card-reviews/product-card-reviews';
 import type { Product } from '@/types/types';
 import s from './product-card.module.scss';
+import useServicesStore from '@/store/serviseStore';
 
 interface ProductCardProps {
   product: Product;
 }
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const { title, category, brand, seria, price, images } = product;
+  const {addToViewed} = useViewedStore();
 
   return (
     <div className={s.productCard}>
@@ -20,7 +23,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <Image className={s.image} src={images[0]} alt={title} fill={true} />
       </div>
     
-      <Link href={`/product/${product.id}`} className={s.description}>
+      <Link onClick={()=> addToViewed(product) } href={`/product/${product.id}`} className={s.description}>
       
         <ProductCardRewiews reviewsCount={product?.reviews?.length} ratingValue={4} />
         <h6>
@@ -29,7 +32,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             {brand} {seria}
           </span>
         </h6>
-      </Link>
+      </Link >
       <div className={s.priceblock}>
         <p className={s.price}>
           {price}
