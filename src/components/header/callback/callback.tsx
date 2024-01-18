@@ -2,6 +2,7 @@
 import { useState, useRef } from 'react';
 import Link from 'next/link';
 import { useClickOutside } from '@/hooks/hooks';
+import CallbackList from './callback-list/callback-list';
 import Button from '@/components/ui/button/button';
 import { Icons } from '@/components/ui/icons/icons';
 import s from './callback.module.scss';
@@ -28,35 +29,12 @@ export default function CallbackDropdown() {
 
       {showBlock && (
         <div className={s.block}>
-          <ul>
-            <li>
-              <Link className={s.instagram} href="/">
-                Instagram
-              </Link>
-            </li>
-            <li>
-              <Link className={s.viber} href="/">
-                Viber
-              </Link>
-            </li>
-            <li>
-              <Link className={s.telegram} href="/">
-                Telegramm
-              </Link>
-            </li>
-            <li>
-              <Link className={s.phone} href="/">
-                097 899 9869
-              </Link>
-            </li>
-            <li>
-              <Link className={s.phone} href="/">
-                098 899 9869
-              </Link>
-            </li>
-          </ul>
+          <CallbackList />
           <div className={s.info}>
-            <Button color='green'><Icons.phone/>Зворотній дзвінок</Button>
+            <Button color="green">
+              <Icons.phone />
+              Зворотній дзвінок
+            </Button>
             <p>Працюємо щоденно з 9:00 до 18:00</p>
           </div>
         </div>

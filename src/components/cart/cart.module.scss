@@ -17,12 +17,15 @@
   position: absolute;
   right: 0;
   top: 0;
-  width: 100%;
-  max-width: 400px;
+  width: 100vw;
+  height: 100vh;
   height: 100vh;
   background-color: rgb(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   padding: 1.5rem 1rem;
+  @media screen and (min-width: 768px) {
+    width: 400px;
+  }
 }
 
 .cartEnter {
@@ -55,8 +58,11 @@
   width: 100%;
   margin: 2rem 0 1.5rem;
   padding-right: 0.5rem;
-  height: calc(100% - 200px);
+  height: calc(100% - 250px);
   overflow-y: auto;
+  @media screen and (min-width: 768px) {
+    height: calc(100% - 220px);
+  }
 
   &::-webkit-scrollbar {
     width: 0.4rem;
@@ -88,7 +94,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  button{
+  button {
     margin-top: 1rem;
   }
 }

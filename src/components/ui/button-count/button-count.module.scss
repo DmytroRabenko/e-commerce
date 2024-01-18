@@ -1,0 +1,40 @@
+@import '@/styles/variables.scss';
+
+.button {
+  position: relative;
+  padding: .2rem;
+  //height: 2.5rem;
+  //width: 4rem;
+  //border: 1px solid black;
+ // display: flex;
+  color: $color_green;
+  .row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 .3rem;
+  }
+  span{
+    display: block;
+  }
+  .count{
+      color: $color_gray
+  }
+
+}
+.count{
+  color: $color_green;
+ // color: $color_white;
+ // position: absolute;
+  //top: .1rem;
+  //right: .1rem;
+ // width: 1.1rem;
+ // height: 1.1rem;
+ // display: flex;
+ // align-items: center;
+ // justify-content: center;
+ // background: $linear-gradient-green;
+ // background-color: $color_green;
+ // border-radius: $br_small
+}
+

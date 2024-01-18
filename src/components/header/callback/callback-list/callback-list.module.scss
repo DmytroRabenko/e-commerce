@@ -1,0 +1,41 @@
+@import '@/styles/variables.scss';
+.list {
+  list-style: none;
+  li {
+    position: relative;
+    padding: 0 0.75rem;
+    &:hover {
+      background-color: $color_lightgray;
+    }
+    a {
+      display: block;
+      padding: 0.5rem 0.5rem 0.5rem 2rem;
+      &::before {
+        content: '';
+        position: absolute;
+        left: 1rem;
+        bottom: 0.4rem;
+        width: 1.2rem;
+        height: 1.2rem;
+        display: inline-block;
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+      &.instagram::before {
+        background-image: url('/icons/instagram.png');
+      }
+      &.telegram::before {
+        background-image: url('/icons/telegram.svg');
+      }
+      &.viber::before {
+        background-image: url('/icons/viber.png');
+      }
+      &.phone::before {
+        background-image: url('/icons/phone.svg');
+      }
+    }
+    .viber::before {
+      background-image: url('/icon/viber.png');
+    }
+  }
+}

@@ -40,7 +40,21 @@ export const useClickOutside = (ref: RefObject<HTMLElement>, callback: () => voi
 };
 
 //відміна scroll для body
-export const useBodyScrollLock = (isActive: boolean) => {
+export const useBodyScrollLockRight = (isActive: boolean) => {
+  useEffect(() => {
+    if (isActive) {
+      const paddingForScroll = window.innerWidth - document.body.offsetWidth + 'px';
+      document.body.classList.add('noScroll');
+      document.body.style.paddingRight = paddingForScroll;
+      return () => {
+        document.body.classList.remove('noScroll');
+        document.body.style.paddingRight = '0';
+      };
+    }
+  }, [isActive]);
+};
+
+export const useBodyScrollLockLeft = (isActive: boolean) => {
   useEffect(() => {
     if (isActive) {
       const paddingForScroll = window.innerWidth - document.body.offsetWidth + 'px';

@@ -1,9 +1,16 @@
 'use client';
 import { useRef } from 'react';
+import Link from 'next/link';
 import { CSSTransition } from 'react-transition-group';
-import { useClickOutside, useBodyScrollLock } from '@/hooks/hooks';
+import { useClickOutside, useBodyScrollLockLeft } from '@/hooks/hooks';
+import { catalogList } from '@/data/constants';
+import Search from '@/components/header/search/search';
+import CallbackList from '@/components/header/callback/callback-list/callback-list';
+import NavList from '@/components/header/nav-list/nav-list';
+import Button from '@/components/ui/button/button';
 import ButtonIcon from '@/components/ui/button-icon/button-icon';
 import { Icons } from '@/components/ui/icons/icons';
+
 import s from './mob-menu.module.scss';
 
 interface MobMenuProps {
@@ -11,9 +18,9 @@ interface MobMenuProps {
   closeMobMenu: () => void;
 }
 
-const MobMenu: React.FC<MobMenuProps> = ({ showMobMenu, closeMobMenu}) => {
+const MobMenu: React.FC<MobMenuProps> = ({ showMobMenu, closeMobMenu }) => {
   const mobMenu = useRef<HTMLDivElement>(null);
-  useBodyScrollLock(showMobMenu);
+  useBodyScrollLockLeft(showMobMenu);
   useClickOutside(mobMenu, closeMobMenu);
 
   return (
@@ -32,10 +39,32 @@ const MobMenu: React.FC<MobMenuProps> = ({ showMobMenu, closeMobMenu}) => {
       <div className={`${s.wrapper} ${showMobMenu && s.visible}`}>
         <div className={s.mobMenu} ref={mobMenu}>
           <div className={s.title}>
-            <h2>Меню</h2>
+            <Link href="/">Logo</Link>
             <ButtonIcon customClass="light" size="medium" onClick={closeMobMenu}>
               <Icons.close size="medium" />
             </ButtonIcon>
+          </div>
+          <div>
+            <Search />
+          </div>
+          <div>
+            <Button width="full" color="green">
+              <Icons.menu />
+              Каталог
+            </Button>
+          </div>
+          <div>
+            <NavList />
+          </div>
+          <div>
+            <CallbackList />
+            <div className={s.info}>
+              <Button width='full' color="green">
+                <Icons.phone />
+                Зворотній дзвінок
+              </Button>
+              <p>Працюємо щоденно з 9:00 до 18:00</p>
+            </div>
           </div>
         </div>
       </div>
@@ -44,3 +73,11 @@ const MobMenu: React.FC<MobMenuProps> = ({ showMobMenu, closeMobMenu}) => {
 };
 
 export default MobMenu;
+
+/*
+          <ul className={s.nav}>
+            {catalogList.map((item, i) => (
+              <li key={i}>{item.title}</li>
+            ))}
+          </ul>
+          */

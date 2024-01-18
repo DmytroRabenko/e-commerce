@@ -1,7 +1,7 @@
 'use client';
 import { useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import { useClickOutside, useBodyScrollLock } from '@/hooks/hooks';
+import { useClickOutside, useBodyScrollLockRight } from '@/hooks/hooks';
 import useCartStore from '@/store/cartStore';
 import Button from '@/components/ui/button/button';
 import ButtonIcon from '@/components/ui/button-icon/button-icon';
@@ -12,11 +12,12 @@ import s from './cart.module.scss';
 
 const Cart = () => {
   const { isCartVisible, cartProducts, toggleCartVisibility, calcTotalPrice } = useCartStore();
-  const cartRef = useRef<HTMLDivElement>(null);
-  useBodyScrollLock(isCartVisible);
-  useClickOutside(cartRef, toggleCartVisibility);
   let totalValue = '';
   totalValue = calcTotalPrice(cartProducts, totalValue);
+
+  const cartRef = useRef<HTMLDivElement>(null);
+  useBodyScrollLockRight(isCartVisible);
+  useClickOutside(cartRef, toggleCartVisibility);
 
   return (
     <CSSTransition

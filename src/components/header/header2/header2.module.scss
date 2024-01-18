@@ -1,12 +1,13 @@
 @import '@/styles/variables.scss';
 
 .header2 {
-  //position: relative;
+  position: relative;
   z-index: 10;
   background-color: $color_green;
   color: $color_white;
   transition: $transition;
   padding: 1rem 0;
+ // overflow: hidden;
   &.fixedHeader {
     position: fixed;
     top: 0;
@@ -44,28 +45,21 @@
   }
 
   .content {
-   // z-index: 20;
     position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    .logo {
-      position: absolute;
-      left: 50%;
-      transform: translate(-50%);
-      display: block;
-      width: 4rem;
-      //height: 2rem;
-      z-index: 50;
-      // background-image: url('/logo.png');
-      // background-position: center;
-      // background-size: contain;
-      // background-repeat: no-repeat;
+    @media screen and (min-width: 1024px) {
+      gap: 3rem;
     }
-
-    .hide {
-      display: none;
+    .logo {
+      width: 6rem;
+      height: 2.5rem;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: $border;
     }
     .mobLogo {
       z-index: 10;
@@ -73,9 +67,10 @@
       left: 50vw;
       transform: translate(-50%);
     }
-
+    .search{
+      width: 45%;
+    }
     .buttonsIcons {
-      //z-index: 20;
       display: flex;
       align-items: center;
       > :first-child,
@@ -95,7 +90,7 @@
         }
       }
 
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: 768px ) {
         > :first-child,
         > :nth-child(2) {
           display: block;

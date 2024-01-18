@@ -1,0 +1,22 @@
+@import '@/styles/variables.scss';
+.nav {
+  .listItem {
+    padding: .5rem 0;
+    transition: $transition;
+    display: block;
+    font-size: 1.2rem;
+    color: inherit;
+    box-shadow: $shadow-blue-gray-n;
+  }
+  @media screen and (min-width: 1024px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .listItem {
+      text-align: center;
+      padding: 0 1rem;
+      transition: $transition;
+      display: block;
+    }
+  }
+}
