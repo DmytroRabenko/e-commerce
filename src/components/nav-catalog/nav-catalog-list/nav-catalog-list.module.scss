@@ -3,14 +3,28 @@
 .list {
   list-style: none;
   li {
-    width: 100%;
-    @media screen and (min-width: 1024px) {
-      width: 300px;
+    position: relative;
+    svg {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      @media screen and (min-width: 1024px) {
+        display: none;
+      }
     }
     a {
+      width: 100%;
       display: block;
       padding: 1rem;
       transition: $transition;
+      border-top: $border;
+
+      &:last-child {
+        border-bottom: $border;
+      }
+      @media screen and (min-width: 1024px) {
+        width: 300px;
+      }
       &:hover {
         background-color: $color_lightgray;
       }

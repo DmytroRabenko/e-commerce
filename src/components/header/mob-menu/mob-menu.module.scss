@@ -19,7 +19,12 @@
   }
 }
 .content {
+  width: 100vw;
+  height: 100vh;
   position: relative;
+  @media screen and (min-width: 768px) {
+    width: 400px;
+  }
 
   .mobMenu {
     position: absolute;
