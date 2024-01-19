@@ -1,0 +1,31 @@
+@import '@/styles/variables.scss';
+
+.catalog {
+  position: absolute;
+  width: 100%;
+  z-index: 20;
+  //background-color: $color_white;
+  background-color: rgb(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: $br-small;
+  box-shadow: $shadow-blue-gray-a;
+  color: $color_gray;
+  font-size: 0.8rem;
+  display: none;
+  top: 66px;
+  left: 0;
+  height: auto;
+ // padding: 1rem 5rem;
+  &.visible {
+    display: block;
+  }
+  .content{
+    position: relative;
+    .close{
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+    }
+  }
+
+}

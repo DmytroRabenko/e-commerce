@@ -1,0 +1,19 @@
+@import '@/styles/variables.scss';
+
+.list {
+  list-style: none;
+  li {
+    width: 100%;
+    @media screen and (min-width: 1024px) {
+      width: 300px;
+    }
+    a {
+      display: block;
+      padding: 1rem;
+      transition: $transition;
+      &:hover {
+        background-color: $color_lightgray;
+      }
+    }
+  }
+}

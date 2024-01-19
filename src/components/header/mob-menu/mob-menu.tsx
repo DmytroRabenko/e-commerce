@@ -2,8 +2,9 @@
 import { useRef } from 'react';
 import Link from 'next/link';
 import { CSSTransition } from 'react-transition-group';
-import { useClickOutside, useBodyScrollLockLeft } from '@/hooks/hooks';
-import { catalogList } from '@/data/constants';
+import { scrollToTop, useClickOutside, useBodyScrollLockLeft } from '@/hooks/hooks';
+import MobNavCatalog from '@/components/mob-nav-catalog/mob-nav-catalog';
+import useStateStore from '@/store/stateStore';
 import Search from '@/components/header/search/search';
 import CallbackList from '@/components/header/callback/callback-list/callback-list';
 import NavList from '@/components/header/nav-list/nav-list';
@@ -13,19 +14,18 @@ import { Icons } from '@/components/ui/icons/icons';
 
 import s from './mob-menu.module.scss';
 
-interface MobMenuProps {
-  showMobMenu: boolean;
-  closeMobMenu: () => void;
-}
-
-const MobMenu: React.FC<MobMenuProps> = ({ showMobMenu, closeMobMenu }) => {
+const MobMenu = () => {
+  const { isMobCatalogVisible, toggleMobCatalogVisibility, isMobMenuVisible, toggleMobMenuVisibility } = useStateStore();
   const mobMenu = useRef<HTMLDivElement>(null);
-  useBodyScrollLockLeft(showMobMenu);
-  useClickOutside(mobMenu, closeMobMenu);
+  useBodyScrollLockLeft(isMobMenuVisible);
+
+  useClickOutside(isMobMenuVisible, mobMenu, () => {
+    toggleMobMenuVisibility();
+  });
 
   return (
     <CSSTransition
-      in={showMobMenu}
+      in={isMobMenuVisible}
       nodeRef={mobMenu}
       timeout={500}
       classNames={{
@@ -36,44 +36,51 @@ const MobMenu: React.FC<MobMenuProps> = ({ showMobMenu, closeMobMenu }) => {
       }}
       unmountOnExit
     >
-      <div className={`${s.wrapper} ${showMobMenu && s.visible}`}>
-        <div className={s.mobMenu} ref={mobMenu}>
-          <div className={s.title}>
-            <Link href="/">Logo</Link>
-            <ButtonIcon customClass="light" size="medium" onClick={closeMobMenu}>
-              <Icons.close size="medium" />
-            </ButtonIcon>
-          </div>
+      <div className={`${s.wrapper} ${isMobMenuVisible && s.visible}`}>
+        <div className={s.content} ref={mobMenu}>
+          <div className={s.mobMenu}>
+            <div className={s.title}>
+              <Link href="/">Logo</Link>
+              <ButtonIcon customClass="light" size="medium" onClick={toggleMobMenuVisibility}>
+                <Icons.close size="medium" />
+              </ButtonIcon>
+            </div>
 
-          <div className={s.search}>
-            <Search />
-          </div>
+            <div className={s.search}>
+              <Search />
+            </div>
 
-          <div className={s.catalog}>
-            <Button width="full" color="green">
-              <Icons.menu />
-              Каталог
-            </Button>
-          </div>
+            <div className={s.catalog}>
+              <Button
+                width="full"
+                color="green"
+                onClick={toggleMobCatalogVisibility}
+              >
+                <Icons.menu />
+                Каталог
+              </Button>
+            </div>
 
-          <div className={s.nav}>
-            <NavList />
-          </div>
-          <Link className={s.user} href="/login">
-            <Icons.person size="medium" />
-            <span>Вхід до кабінету</span>
-          </Link>
-          <div className={s.callback}>
-            <CallbackList />
-          </div>
+            <div className={s.nav}>
+              <NavList />
+            </div>
+            <Link className={s.user} href="/login">
+              <Icons.person size="medium" />
+              <span>Вхід до кабінету</span>
+            </Link>
+            <div className={s.callback}>
+              <CallbackList />
+            </div>
 
-          <div className={s.info}>
-            <Button width="full" color="green">
-              <Icons.phone />
-              Зворотній дзвінок
-            </Button>
-            <p>Працюємо щоденно з 9:00 до 18:00</p>
+            <div className={s.info}>
+              <Button width="full" color="green">
+                <Icons.phone />
+                Зворотній дзвінок
+              </Button>
+              <p>Працюємо щоденно з 9:00 до 18:00</p>
+            </div>
           </div>
+          {isMobCatalogVisible && <MobNavCatalog />}
         </div>
       </div>
     </CSSTransition>
@@ -81,11 +88,3 @@ const MobMenu: React.FC<MobMenuProps> = ({ showMobMenu, closeMobMenu }) => {
 };
 
 export default MobMenu;
-
-/*
-          <ul className={s.nav}>
-            {catalogList.map((item, i) => (
-              <li key={i}>{item.title}</li>
-            ))}
-          </ul>
-          */

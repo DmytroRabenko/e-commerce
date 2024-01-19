@@ -1,0 +1,56 @@
+@import '@/styles/variables.scss';
+
+  .catalog {
+    position: absolute;
+    width: 100%;
+    height: calc(100vh - 80px);
+    z-index: 20;
+    //background-color: $color_white;
+    background-color: rgb(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+    border-radius: $br-small;
+    box-shadow: $shadow-blue-gray-a;
+    color: $color_gray;
+    font-size: 0.8rem;
+    display: none;
+    @media screen and (min-width: 1024px) {
+      //width: calc(100vh - 10rem);
+      top: 66px;
+      left: 0;
+      height: auto;
+      padding: 1rem 5rem;
+    }
+    &.visible{
+      display: block;
+    }
+    .title{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 1rem;
+      font-size: 1rem;
+      @media screen and (min-width: 1024px) {
+        display: none;
+      }
+    }
+    .list {
+      list-style: none;
+      li {
+        width: 100%;
+        @media screen and (min-width: 1024px) {
+          width: 300px;
+        }
+        a {
+          display: block;
+          padding: 1rem;
+          transition: $transition;
+          &:hover {
+            background-color: $color_lightgray;
+          }
+        }
+      }
+
+    }
+
+
+  }

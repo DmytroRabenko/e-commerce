@@ -17,7 +17,9 @@ const Cart = () => {
 
   const cartRef = useRef<HTMLDivElement>(null);
   useBodyScrollLockRight(isCartVisible);
-  useClickOutside(cartRef, toggleCartVisibility);
+  useClickOutside(isCartVisible, cartRef, () => {
+    toggleCartVisibility();
+  });
 
   return (
     <CSSTransition

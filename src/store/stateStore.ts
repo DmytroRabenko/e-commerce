@@ -1,19 +1,29 @@
 import { create } from 'zustand';
-import { Product } from '@/types/types';
 
 interface StateStore {
-  products: Product[];
-  viewProducts: Product[];
+  isMobMenuVisible: boolean;
+  toggleMobMenuVisibility: () => void;
+  isMobCatalogVisible: boolean;
+  toggleMobCatalogVisibility: () => void;
+  isCatalogVisible: boolean;
+  toggleCatalogVisibility: () => void;
 }
 
-const useStateStore = create<StateStore>(() => {
-
-    return {
-      products: [],
-      viewProducts: [],
-
-
-    }
+const useStateStore = create<StateStore>(set => {
+  return {
+    isMobMenuVisible: false,
+    isMobCatalogVisible: false,
+    isCatalogVisible: false,
+    toggleMobMenuVisibility: () => {
+      set(state => ({ isMobMenuVisible: !state.isMobMenuVisible }));
+    },
+    toggleMobCatalogVisibility: () => {
+      set(state => ({ isMobCatalogVisible: !state.isMobCatalogVisible }));
+    },
+    toggleCatalogVisibility: () => {
+      set(state => ({ isCatalogVisible: !state.isCatalogVisible }));
+    },
+  };
 });
 
 export default useStateStore;

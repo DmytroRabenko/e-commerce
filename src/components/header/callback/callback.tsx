@@ -11,10 +11,8 @@ export default function CallbackDropdown() {
   const blockRef = useRef<HTMLDivElement>(null);
   const [showBlock, setShowBlock] = useState(false);
 
-  useClickOutside(blockRef, () => {
-    if (showBlock) {
+  useClickOutside(showBlock, blockRef, () => {
       setShowBlock(false);
-    }
   });
 
   return (
