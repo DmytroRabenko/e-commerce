@@ -21,7 +21,7 @@ const Search = () => {
     setValue(event.target.value);
   };
 
-  useClickOutside(searchRef, () => {
+  useClickOutside( true, searchRef, () => {
     if (visible) {
       setVisible(false);
     }

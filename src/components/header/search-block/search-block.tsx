@@ -24,11 +24,9 @@ const SearchBlock = () => {
     setValue(event.target.value);
   };
 
-  useClickOutside(blockRef, () => {
-    if (showSerchBlock) {
-      setVisible(false);
-      setShowSearchBlock(false);
-    }
+  useClickOutside(showSerchBlock, blockRef, () => {
+    setVisible(false);
+    setShowSearchBlock(false);
   });
 
   return (

@@ -1,7 +1,6 @@
 'use client';
 import Link from 'next/link';
 import useStateStore from '@/store/stateStore';
-import { useBodyScrollLock } from '@/hooks/hooks';
 import ButtonIcon from '@/components/ui/button-icon/button-icon';
 import { Icons } from '@/components/ui/icons/icons';
 import s from './mob-nav-catalog.module.scss';
