@@ -8,15 +8,15 @@ import ProductBuy from '@/components/product-card/product-buy/product-buy';
 import ProductCardRewiews from '@/components/product-card/product-card-reviews/product-card-reviews';
 import type { Product } from '@/types/types';
 import s from './product-card.module.scss';
-import useServicesStore from '@/store/serviseStore';
 
 interface ProductCardProps {
   product: Product;
 }
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-  const { title, category, brand, seria, price, images } = product;
+  const { title, mainCategory, brand, seria, price, images } = product;
   const {addToViewed} = useViewedStore();
-
+  console.log(mainCategory);
+  
   return (
     <div className={s.productCard}>
       <div className={s.imageContainer}>
@@ -43,7 +43,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       <div className={s.favorite}>
         <FavoriteIcon product={product} />
       </div>
-      <ProductBadge title={category} />
+      <ProductBadge category={mainCategory} />
     </div>
   );
 };

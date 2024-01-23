@@ -4,18 +4,31 @@ export interface ContainerProps {
   children: ReactNode
   className?: string
 }
+export interface NavItem {
+  title: string;
+  id: string;
+  url: string;
+}
+
+export interface CatalogList {
+  title: string;
+  href: string;
+  value: string;
+}
 
 export interface Rewiew{
   name: string
   text: string
   rating: string
   date: string
+  id: string
 }
 
 export interface Product {
   id: string
   type?: string
   category?: string
+  mainCategory?: string
   title: string
   description?: string
   brand: string
@@ -33,4 +46,11 @@ export interface Product {
   reviews?: Rewiew[] | []
   quantity: number
 }
+
+export interface Category{
+  title: string
+  id: string
+  value: string
+}
+
 

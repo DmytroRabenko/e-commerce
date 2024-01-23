@@ -1,29 +1,29 @@
 import { create } from 'zustand';
 import axios from '@/store/axios';
-import { Product } from '@/types/types';
+import { Product, Category } from '@/types/types';
 
 interface ServicesStore {
-  getAllProducts: () => Promise<Product[]>;
+  getProducts: (queryParams:string) => Promise<Product[]>;
   getCategoryProducts: (category: string, page: number, limit: string) => Promise<Product[]>;
   getProductById: (id: string) => Promise<Product>;
-}
-
-interface CustomError extends Error {
-  message: string;
+  getCategoryList: () => Promise<{
+    productCategory: Category[];
+    generalCategory: Category[];
+  }>;
 }
 
 const useServicesStore = create<ServicesStore>(set => ({
-  getAllProducts: async () => {
+  getProducts: async (queryParams) => {
     try {
-      const res = await axios.get(`/catalog`);
+      const res = await axios.get(`/${queryParams}`);
       return res.data;
     } catch (error: any) {
       throw new Error(error?.response?.data?.message);
     }
   },
-  getCategoryProducts: async (category, page, limit) => {
-    try {
-      const res = await axios.get(`/catalog?category=${category}&_page=${page}&_limit=${limit}`);
+  getCategoryProducts: async (categories, page, limit) => {
+    try {           //відфільтровую сатегорії по значенню mainCategories
+      const res = await axios.get(`/catalog?mainCategory=${categories}&_page=${page}&_limit=${limit}`);
       return res.data;
     } catch (error: any) {
       throw new Error(error?.response?.data?.message);
@@ -32,6 +32,14 @@ const useServicesStore = create<ServicesStore>(set => ({
   getProductById: async id => {
     try {
       const res = await axios.get(`/catalog/${id}`);
+      return res.data;
+    } catch (error: any) {
+      throw new Error(error?.response?.data?.message);
+    }
+  },
+  getCategoryList: async () => {
+    try {
+      const res = await axios.get(`/category`);
       return res.data;
     } catch (error: any) {
       throw new Error(error?.response?.data?.message);

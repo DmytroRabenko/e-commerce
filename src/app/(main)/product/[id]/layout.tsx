@@ -1,5 +1,6 @@
 import { Suspense } from 'react'; //, { Suspense }
 import Image from 'next/image';
+import Link from 'next/link';
 import { Metadata } from 'next'; //, ResolvingMetadata
 import Container from '@/components/ui/container/container';
 import Loading from '@/components/loading/loading';
@@ -11,7 +12,7 @@ import Popular from '@/components/main/popular/popular';
 import { getProductById } from '@/services/services';
 
 import s from './product-page.module.scss';
-import Link from 'next/link';
+
 
 type Props = {
   params: { id: string };
