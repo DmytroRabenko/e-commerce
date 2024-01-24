@@ -3,7 +3,6 @@
   width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  border: 1px solid black;
 
   .imagesBlock {
     padding: 1rem;
@@ -21,29 +20,68 @@
 
   .descriptionBlock {
     padding: 1rem;
-    .titleBlock{
-        display: flex;
-        justify-content: space-between;
+    .titleBlock {
+      display: flex;
+      justify-content: space-between;
     }
-    .title{
-        margin-bottom: .5rem;
+    .title {
+      margin-bottom: 0.5rem;
     }
-    .code{
-        font-size: .7rem;
-        padding: .25rem 0;
+    .code {
+      font-size: 0.7rem;
+      padding: 0.25rem 0;
     }
-    .description{
-    margin: 1rem 0;
+    .description {
+      margin: 1rem 0;
     }
   }
 }
 
-.characteristic{
-  width: 100%;
-  margin: 2rem 0;
-  list-style: none;
-  li{
-    padding: .25rem;
-    border-bottom: $border;
+.childrenBlock {
+  border-top: 2rem solid $color_lightgray;
+  border-bottom: 2rem solid $color_lightgray;
+  padding: 2rem 0;
+  .characteristic {
+    width: 100%;
+    margin: 2rem 0;
+    list-style: none;
+    li {
+      padding: 0.25rem;
+      border-bottom: $border;
+    }
+  }
+
+  .reviewsBlock {
+    .title {
+      display: flex;
+      justify-content: space-between;
+    }
+    .ratingTitle {
+      width: fit-content;
+      border: $border;
+      margin: 1rem 0;
+      padding: 1rem 1rem 0.5rem;
+      background-color: rgb(229, 231, 235, 0.1);
+      border-radius: $br-small;
+      .text {
+        font-size: 0.85rem;
+        font-weight: 500;
+      }
+      .content {
+        display: flex;
+        gap: 0.5rem;
+        align-items: flex-end;
+        .value {
+          font-size: 50px;
+          color: $color_green;
+          display: block;
+        }
+        .rating {
+          padding: 0.5rem 0;
+          font-size: 0.85rem;
+          font-weight: 500;
+        }
+      }
+    }
   }
 }

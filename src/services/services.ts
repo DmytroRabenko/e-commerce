@@ -1,6 +1,6 @@
 
 import axios from '@/store/axios';
-import { Product } from '@/types/types';
+import { Product, ReviewType } from '@/types/types';
 
 
 interface GetCategoryProducts{
@@ -35,3 +35,27 @@ export async function getCategoryProducts({category, page, limit}:GetCategoryPro
       throw new Error(error?.response?.data?.message);
     }
   }
+
+
+  export async function getProductReviews(productId: string) {
+    try {
+      const res = await axios.get(`/reviews?productId=${productId}`);
+      return res.data;
+    } catch (error: any) {
+      throw new Error(error?.response?.data?.message);
+    }
+  }
+
+  export async function addProductReview(data: ReviewType) {
+    try {
+      const response = await axios.post(`/reviews`, data, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      return response;
+    } catch (error: any) {
+      throw new Error(error);
+    }
+  }
+

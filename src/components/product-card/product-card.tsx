@@ -15,7 +15,6 @@ interface ProductCardProps {
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const { title, mainCategory, brand, seria, price, images } = product;
   const {addToViewed} = useViewedStore();
-  console.log(mainCategory);
   
   return (
     <div className={s.productCard}>

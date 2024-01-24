@@ -1,0 +1,14 @@
+@import '@/styles/variables.scss';
+.links {
+  margin-bottom: 2rem;
+  border-bottom: $border;
+  display: flex;
+  gap: 1rem;
+  .linkItem {
+    display: block;
+    padding: .5rem 0;
+    &.active {
+      border-bottom: 2px solid $color_green;
+    }
+  }
+}

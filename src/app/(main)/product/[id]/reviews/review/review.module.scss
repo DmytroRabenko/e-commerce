@@ -1,0 +1,25 @@
+@import '@/styles/variables.scss';
+.review{
+    padding: 1rem;
+    border: $border;
+    margin-top: 1rem;
+    background-color: rgb(229, 231, 235, 0.1);
+    border-radius: $br-small;
+    .title{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      h5{
+        font-size: 0.85rem;
+        font-weight: 500;
+      }
+    }
+    .text{
+        display: block;
+        padding: 1rem 0;
+    }
+    .date{
+        font-size: 0.85rem;
+        text-align: right;
+    }
+  }

@@ -16,12 +16,13 @@ export interface CatalogList {
   value: string;
 }
 
-export interface Rewiew{
+export interface ReviewType{
   name: string
   text: string
-  rating: string
+  rating: number
   date: string
   id: string
+  productId: string
 }
 
 export interface Product {
@@ -43,11 +44,10 @@ export interface Product {
   finalNote?: string
   code: string
   images: string[] | []
-  reviews?: Rewiew[] | []
   quantity: number
 }
 
-export interface Category{
+export interface CategoryType{
   title: string
   id: string
   value: string

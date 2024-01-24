@@ -17,8 +17,7 @@ const ProductPage = async ({ params: { id } }: Props) => {
     heartNote,
     finalNote,
   } = product;
-  return (
-    
+  return (   
       <ul className={s.characteristic}>
         <li>
           Бренд: <span>{brand}</span>

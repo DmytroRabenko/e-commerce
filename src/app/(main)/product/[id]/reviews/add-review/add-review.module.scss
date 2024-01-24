@@ -1,0 +1,14 @@
+@import '@/styles/variables.scss';
+.container{
+    width: 50%;
+    border: $border;
+    border-radius: $br-small;
+    background-color: rgb(229, 231, 235, 0.1);
+    padding: 1rem;
+    color: $color_gray;
+    .title{
+        font-size: 1rem;
+        padding-bottom: .5rem;
+        border-bottom: $border;
+    }
+}

@@ -1,6 +1,6 @@
 import { Suspense } from 'react'; //, { Suspense }
 import Image from 'next/image';
-import Link from 'next/link';
+import ProductNavLinks from '@/components/product-page/description/product-nav-links/product-nav-links';
 import { Metadata } from 'next'; //, ResolvingMetadata
 import Container from '@/components/ui/container/container';
 import Loading from '@/components/loading/loading';
@@ -13,7 +13,6 @@ import { getProductById } from '@/services/services';
 
 import s from './product-page.module.scss';
 
-
 type Props = {
   params: { id: string };
 };
@@ -23,7 +22,6 @@ type ProductPageLayoutProps = {
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  //,parent: ResolvingMetadata
   const product = await getProductById(params.id);
   return {
     title: `${product.brand} ${product.seria} - купити за доступною ціною ${product.title}`,
@@ -34,11 +32,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 const ProductPageLayout = async ({ params, children }: ProductPageLayoutProps) => {
   const product = await getProductById(params.id);
   const { code, brand, seria, title, description, openingNote, heartNote, finalNote, images, reviews } = product;
-  const productPageLinks = [
-    { title: 'Характеристики', url: `/product/${params.id}` },
-    { title: 'Відгуки', url: `/product/${params.id}/reviews` },
-    { title: 'Оплата та доставка', url: `/product/${params.id}/delivery` },
-  ];
 
   return (
     <>
@@ -83,18 +76,17 @@ const ProductPageLayout = async ({ params, children }: ProductPageLayoutProps) =
             <ToBuyBlock product={product} />
           </div>
         </div>
-        <div>
-          {productPageLinks.map((item, i) => (
-            <Link href={item.url} key={i}>
-              {item.title}
-            </Link>
-          ))}
-        </div>
-
-        <Suspense fallback={<Loading />}>{children}</Suspense>
       </Container>
-      <Recomended />
-      <Popular/>
+      <div className={s.childrenBlock}>
+        <Container>
+          <ProductNavLinks params={params} />
+          <Suspense fallback={<Loading />}>{children}</Suspense>
+        </Container>
+      </div>
+      <Container>
+        <Recomended />
+        <Popular />
+      </Container>
     </>
   );
 };
