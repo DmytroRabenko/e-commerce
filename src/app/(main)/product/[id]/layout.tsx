@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 const ProductPageLayout = async ({ params, children }: ProductPageLayoutProps) => {
   const product = await getProductById(params.id);
-  const { code, brand, seria, title, description, openingNote, heartNote, finalNote, images, reviews } = product;
+  const { code, brand, seria, title, description, openingNote, heartNote, finalNote, images, id} = product;
 
   return (
     <>
@@ -53,7 +53,7 @@ const ProductPageLayout = async ({ params, children }: ProductPageLayoutProps) =
               <FavoriteIcon size="large" product={product} />
             </div>
 
-            <ProductCardRewiews reviewsCount={reviews?.length} ratingValue={4} />
+            <ProductCardRewiews productId={id} />
             <div className={s.code}>Код товару: {code}</div>
             <p className={s.description}>
               {title}{' '}
