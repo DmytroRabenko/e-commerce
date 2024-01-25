@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic';
 const ProductCard = dynamic(() => import('@/components/product-card/product-card'), { ssr: false });
 import ButtonIcon from '@/components/ui/button-icon/button-icon';
 import useServicesStore from '@/store/serviseStore';
-import { Product, Category } from '@/types/types';
+import { Product } from '@/types/types';
 import { Icons } from '@/components/ui/icons/icons';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
@@ -18,10 +18,6 @@ import '@/styles/globals.scss';
 interface CatalogSwiperProps {
   title?: string;
   category: string;
-}
-interface CategoryObject {
-  productCategory: Category[];
-  generalCategory: Category[];
 }
 
 const CatalogSwiper: React.FC<CatalogSwiperProps> = ({ title, category }) => {
