@@ -46,11 +46,15 @@ button {
 
 //swiper
 .swiper-pagination-bullet{
-  width: 2rem;
-  height: .5rem;
-  border-radius: 0;
+  width: 1.5rem;
+  height: .4rem;
+  border-radius: 3px;
   margin: 0 0.1rem;
   background-color: $color_blue-gray;
+  display: none;
+  @media screen and (min-width: 380px) {
+   display: inline-block;
+  }
 }
 .swiper-pagination-bullet-active {
   background-color: $color_green;

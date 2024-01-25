@@ -1,14 +1,28 @@
+'use client'
+import { useState, useEffect } from 'react';
 import Rating from '@/components/ui/rating/rating';
+import { getProductReviews } from '@/services/services';
 import s from './product-card-reviews.module.scss';
 
-interface ProductBadgeProps {
-  reviewsCount?: number | undefined;
-  ratingValue: number | undefined;
+
+interface ProductCardReviewsProps {
+  productId: string;
 }
+const ProductCardRewiews: React.FC<ProductCardReviewsProps> =  ({ productId }) => {
+  const [reviews, setReviews] = useState([]);
+  const [reviewsCount, setReviewsCount] = useState(0);
 
-const ProductCardRewiews: React.FC<ProductBadgeProps> = ({ reviewsCount }) => {
+  useEffect(() => {
+    const fetchReviews = async () => {
+      const fetchedReviews = await getProductReviews(productId);
+      setReviews(fetchedReviews);
+      setReviewsCount(fetchedReviews.length);
+    };
 
-  const getLastDigit = (number: number) => {
+    fetchReviews();
+  }, [productId]);
+
+  const getLastDigit = (number: number): number => {
     return number % 10;
   };
 

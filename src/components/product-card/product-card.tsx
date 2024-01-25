@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import Image from 'next/image';
 import Link from 'next/link';
 import useViewedStore from '@/store/viewedStore';
@@ -13,31 +13,32 @@ interface ProductCardProps {
   product: Product;
 }
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-  const { title, mainCategory, brand, seria, price, images } = product;
-  const {addToViewed} = useViewedStore();
-  
+  const { title, mainCategory, brand, seria, price, images, id } = product;
+  const { addToViewed } = useViewedStore();
+
   return (
     <div className={s.productCard}>
-      <div className={s.imageContainer}>
-        <Image className={s.image} src={images[0]} alt={title} fill={true} />
-      </div>
-    
-      <Link onClick={()=> addToViewed(product) } href={`/product/${product.id}`} className={s.description}>
-      
-        <ProductCardRewiews reviewsCount={product?.reviews?.length} ratingValue={4} />
-        <h6>
-          {title}
-          <span className={s.name}>
-            {brand} {seria}
-          </span>
-        </h6>
-      </Link >
+      <Link onClick={() => addToViewed(product)} href={`/product/${product.id}`}>
+        <div className={s.imageContainer}>
+          <Image className={s.image} src={images[0]} alt={title} fill={true} />
+        </div>
+
+        <div className={s.description}>
+          <ProductCardRewiews productId={id} />
+          <p className={s.type}>
+            {title}
+          </p>
+          <h5 className={s.name}>
+              {brand} {seria}
+            </h5>
+        </div>
+      </Link>
       <div className={s.priceblock}>
         <p className={s.price}>
           {price}
           <span> грн</span>
         </p>
-        <ProductBuy product={product}/>
+        <ProductBuy product={product} />
       </div>
       <div className={s.favorite}>
         <FavoriteIcon product={product} />

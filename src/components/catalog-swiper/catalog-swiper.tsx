@@ -78,7 +78,7 @@ const CatalogSwiper: React.FC<CatalogSwiperProps> = ({ title, category }) => {
             },
             1024: {
               slidesPerView: 4,
-              slidesPerGroup: 5,
+              slidesPerGroup: 4,
               spaceBetween: 20,
             },
             1280: {
