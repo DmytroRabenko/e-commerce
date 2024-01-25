@@ -1,14 +1,14 @@
 import { create } from 'zustand';
 import axios from '@/store/axios';
-import { Product, Category } from '@/types/types';
+import { Product, CategoryType } from '@/types/types';
 
 interface ServicesStore {
   getProducts: (queryParams:string) => Promise<Product[]>;
   getCategoryProducts: (category: string, page: number, limit: string) => Promise<Product[]>;
   getProductById: (id: string) => Promise<Product>;
   getCategoryList: () => Promise<{
-    productCategory: Category[];
-    generalCategory: Category[];
+    productCategory: CategoryType[];
+    generalCategory: CategoryType[];
   }>;
 }
 
