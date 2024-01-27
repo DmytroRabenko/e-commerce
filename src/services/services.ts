@@ -58,4 +58,5 @@ export async function getCategoryProducts({category, page, limit}:GetCategoryPro
       throw new Error(error);
     }
   }
+  
 

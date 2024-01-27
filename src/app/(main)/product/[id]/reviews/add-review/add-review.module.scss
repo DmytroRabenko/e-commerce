@@ -1,14 +1,34 @@
 @import '@/styles/variables.scss';
 .container{
-    width: 50%;
+    width: 100%;
+    height: 305px;
     border: $border;
     border-radius: $br-small;
     background-color: rgb(229, 231, 235, 0.1);
     padding: 1rem;
     color: $color_gray;
+    @media screen and (min-width: 1024px) {
+        width: 70%;
+      }
     .title{
         font-size: 1rem;
         padding-bottom: .5rem;
         border-bottom: $border;
+        margin-bottom: .5rem;
     }
+    .formContainer{
+        .form{
+            display: flex;
+            gap: 1rem;
+            margin-bottom: .5rem;
+            .inputsBlock{
+                width: 100%;
+                width: calc(50% - 0.5rem);
+            }
+            .textAreaBlock{
+                width: calc(50% - 0.5rem);
+            }
+        }
+    }
+
 }

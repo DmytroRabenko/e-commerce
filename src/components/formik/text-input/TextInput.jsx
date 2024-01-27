@@ -78,13 +78,13 @@ const TextInput = ({
           )}
         </div>
         {showCharacterCount && (
-          <p
+          <span
             className={`${styles.counterMessage} ${
               valueLength > maxLength ? styles.redText : ''
             }`}
           >
             {`${valueLength}/${maxLength}`}
-          </p>
+          </span>
         )}
       </div>
     </div>

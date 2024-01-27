@@ -7,11 +7,17 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   color?: string;
   width?: string;
   customClass?: string;
+ // isActive?: boolean    isActive,
 }
 const Button: React.FC<ButtonProps> = ({ children, icon, customClass, color, width, ...buttonProps }) => {
+  
+  //const buttonActive = !isActive ? s.inactiveButton: '';
+  const buttonColor = color ? s[color] : '';
+  const buttonWidth = width ? s[width] : '';
+  const buttonCustomClass = customClass ? s[customClass] : '';
   return (
     <button
-      className={`${s.button}  ${customClass ? s[customClass] : ''} ${color ? s[color] : ''} ${width ? s[width] : ''}`}
+      className={`${s.button}  ${buttonColor} ${buttonWidth} ${buttonCustomClass}`}//${buttonActive}
       {...buttonProps}
     >
       {icon && <span className={s.icon}>{icon}</span>}

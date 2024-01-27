@@ -21,6 +21,7 @@ export interface ReviewType{
   text: string
   rating: number
   date: string
+  email: string
   id: string
   productId: string
 }

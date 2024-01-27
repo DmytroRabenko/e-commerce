@@ -1,0 +1,56 @@
+@import '@/styles/variables.scss';
+.inputWrapper {
+  width: 100%;
+  .input {
+    display: flex;
+    width: 100%;
+    padding: .35rem;
+    border-radius: $br-small;
+    border: $border;
+    background-color: $color_white;
+    color: $color_gray;
+    font-size: 1rem;
+    margin: .25rem 0;
+    outline: none;
+  }
+
+  .commentsWrapper {
+    position: relative;
+    bottom: 0;
+    height: 1rem;
+  }
+
+  .counterMessage {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: $color_gray;
+    font-size: 11px;
+  }
+
+  .errorMessage {
+    color: $color_red;
+    font-size: 11px;
+    font-weight: 500;
+  }
+
+  .redBorder {
+    border: 1px solid $color_red;
+  }
+
+  .greenBorder {
+    border: 1px solid $color_green;
+  }
+
+  .blueBorder {
+    border: 1px solid $color_green;
+  }
+
+  .grayBorder {
+    border: 1px solid $color_lightgray;
+  }
+
+  .redText {
+    color: $color_red;
+  }
+}

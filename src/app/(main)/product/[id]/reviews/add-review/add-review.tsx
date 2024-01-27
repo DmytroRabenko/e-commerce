@@ -4,33 +4,42 @@ import Rating from '@/components/ui/rating/rating';
 import { Formik, Form, Field } from 'formik';
 import TextInput from '@/components/formik/text-input/TextInput';
 import TextArea from '@/components/formik/text-area/TextArea';
-import ButtonSubmit from '@/components/formik/submit-button/ButtonSubmit';
+//import ButtonSubmit from '@/components/formik/submit-button/ButtonSubmit';
 import { addReviewValidation } from '@/services/validation/add-review-validation-shema';
 import { ReviewType } from '@/types/types';
 import s from './add-review.module.scss';
+import Button from '@/components/ui/button/button';
 
 const initialValues = {
   name: '',
+  email: '',
   text: '',
-  rating: 0,
+  rating: 5,
   date: '',
   productId: '',
   id: '',
 };
 
 const AddReview = () => {
+
   const onSubmit = async (values: ReviewType) => {
+    console.log(values);
+    
     try {
-        /*
+      
       const formData = new FormData();
-      formData.append('name', values.name);
-      formData.append('text', values.text);
-      formData.append('rating', values.text);
-      formData.append('date', values.text);
-      formData.append('productId', values.text);
-      formData.append('id', values.text);
-*/
-      await addProductReview(values);
+      const reviewData: ReviewType = {
+        name: formData.get('name') as string,
+        text: formData.get('text') as string,
+        email: formData.get('email') as string,
+        rating: Number(formData.get('rating')),
+        date: formData.get('date') as string,
+        productId: formData.get('productId') as string,
+        id: formData.get('id') as string,
+      };
+      console.log(reviewData);
+      
+      await addProductReview(reviewData);
     } catch (error) {
       console.log(error);
     }
@@ -39,44 +48,52 @@ const AddReview = () => {
   return (
     <div className={s.container}>
       <h5 className={s.title}>Залишити відгук</h5>
-      <div className={s.form}>
-        <Formik initialValues={initialValues} validationSchema={addReviewValidation} onSubmit={onSubmit}>
+      <div className={s.formContainer}>
+        <Formik 
+        initialValues={initialValues} 
+        validationSchema={addReviewValidation} 
+        onSubmit={onSubmit}>
           {formik => {
             return (
               <Form>
-                <Field
-                  name="name"
-                  id="name"
-                  placeholder="name"
-                  component={TextInput}
-                  maxLength={100}
-                  showCharacterCount={true}
-                  label="Ім'я*"
-                />
-                <Field
-                  name="email"
-                  id="email"
-                  placeholder="email"
-                  component={TextInput}
-                  maxLength={100}
-                  showCharacterCount={true}
-                  label="Ім'я*"
-                />
-                <Field
-                  name="text"
-                  id="text"
-                  placeholder="text"
-                  component={TextArea}
-                  maxLength={1000}
-                  showCharacterCount={true}
-                  label="Відгук"
-                />
-
-                <ButtonSubmit
-                  nameButton="Зберегти зміни"
-                  isActive={formik.isValid}
-                  handlerSubmitButton={onSubmit}
-                />
+                <div className={s.form}>
+                  <div className={s.inputsBlock}>
+                    <Field
+                      name="name"
+                      id="name"
+                      component={TextInput}
+                     // maxLength={100}
+                      //showCharacterCount={true}
+                      label="Ваше ім'я*"
+                    />
+                    <Field
+                      name="email"
+                      id="email"
+                      component={TextInput}
+                     // maxLength={100}
+                     // showCharacterCount={true}
+                      label="Ваш email*"
+                    />
+                    <Field name="rating" id="rating" component={Rating} size="medium" ratingValue={5} />
+                  </div>
+                  <div className={s.textAreaBlock}>
+                    <Field
+                      name="text"
+                      id="text"
+                      placeholder="text"
+                      component={TextArea}
+                     // maxLength={1000}
+                      //showCharacterCount={true}
+                      label="Текст відгука"
+                    />
+                  </div>
+                </div>
+                <Button
+                  color="green"
+                  width='full'
+                >
+                  Залишити відгук
+                </Button>
               </Form>
             );
           }}
@@ -86,3 +103,10 @@ const AddReview = () => {
   );
 };
 export default AddReview;
+/*
+     <ButtonSubmit nameButton="Залишити відгук"
+                 isActive={true} 
+               // isActive={formik.isValid} 
+              // onClick={isActive ? onSubmit : null}
+               // handlerSubmitButton={onSubmit} />
+ */
