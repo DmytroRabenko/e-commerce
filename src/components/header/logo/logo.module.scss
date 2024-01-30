@@ -1,0 +1,16 @@
+@import '@/styles/variables.scss';
+.logo {
+  z-index: 10;
+  font-size: 2rem;
+  letter-spacing: 0.12rem;
+  color: inherit;
+  @media screen and (min-width: 768px) {
+   // color: $color_white;
+    text-align: center;
+    font-size: 2.5rem;
+    letter-spacing: 0.12rem;
+  }
+  @media screen and (min-width: 1024px) {
+    color: $color-green;
+  }
+}

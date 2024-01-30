@@ -1,8 +1,7 @@
-import Link from 'next/link';
 import Container from '@/components/ui/container/container';
 import CallbackDropdown from '@/components/header/callback/callback';
 import NavList from '@/components/header/nav-list/nav-list';
-import { Icons } from '@/components/ui/icons/icons';
+import Leng from '@/components/header/leng/leng';
 import s from './header1.module.scss';
 
 const Header1 = () => {
@@ -12,10 +11,7 @@ const Header1 = () => {
         <div className={s.content}>
           <CallbackDropdown />
           <NavList/>
-          <Link className={s.user} href="/login">
-            <Icons.person size="medium" />
-            <span>Вхід до кабінету</span>
-          </Link>
+          <Leng/>
         </div>
       </Container>
     </div>

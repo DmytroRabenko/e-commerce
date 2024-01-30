@@ -13,20 +13,5 @@
     align-items: center;
     justify-content: space-between;
   }
-
-  .user {
-    height: 100%;
-    padding: 0.25rem 0.5rem 0.25rem 1.5rem;
-    display: flex;
-    align-items: center;
-    position: relative;
-    svg {
-      position: absolute;
-      left: 0;
-      bottom: 0.1rem;
-    }
-    span {
-      display: inline-block;
-    }
-  }
 }
+

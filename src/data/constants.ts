@@ -5,6 +5,7 @@ export const navList: NavItem[] = [
   { title: 'Відгуки', id: '3', url: '/about-us' },
   { title: 'Оплата та доставка', id: '4', url: '/delivery' },
   { title: 'Контакти', id: '5', url: '/contacts' },
+  { title: 'Особистий кабінет', id: '6', url: '/login' },
 ];
 
 export const catalogList: CatalogList[] = [

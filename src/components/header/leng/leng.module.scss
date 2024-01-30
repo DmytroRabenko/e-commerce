@@ -1,0 +1,18 @@
+@import '@/styles/variables.scss';
+.leng{
+  display: flex;
+  button{
+    display: block;
+    width: 2rem;
+    height: 3rem;
+    font-size: 0.9rem;
+  }
+  .ru{
+    color: $color_white;
+    background-color: transparent;
+  }
+  .ua{
+    color: $color-green;
+    background-color: $color_white;
+  }
+}

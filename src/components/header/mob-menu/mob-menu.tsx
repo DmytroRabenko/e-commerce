@@ -8,6 +8,7 @@ import useStateStore from '@/store/stateStore';
 import Search from '@/components/header/search/search';
 import CallbackList from '@/components/header/callback/callback-list/callback-list';
 import NavList from '@/components/header/nav-list/nav-list';
+import Logo from '@/components/header/logo/logo';
 import Button from '@/components/ui/button/button';
 import ButtonIcon from '@/components/ui/button-icon/button-icon';
 import { Icons } from '@/components/ui/icons/icons';
@@ -15,7 +16,8 @@ import { Icons } from '@/components/ui/icons/icons';
 import s from './mob-menu.module.scss';
 
 const MobMenu = () => {
-  const { isMobCatalogVisible, toggleMobCatalogVisibility, isMobMenuVisible, toggleMobMenuVisibility } = useStateStore();
+  const { isMobCatalogVisible, toggleMobCatalogVisibility, isMobMenuVisible, toggleMobMenuVisibility } =
+    useStateStore();
   const mobMenu = useRef<HTMLDivElement>(null);
   useBodyScrollLockLeft(isMobMenuVisible);
 
@@ -40,7 +42,9 @@ const MobMenu = () => {
         <div className={s.content} ref={mobMenu}>
           <div className={s.mobMenu}>
             <div className={s.title}>
-              <Link href="/">Logo</Link>
+              <div onClick={toggleMobMenuVisibility}>
+                <Logo />
+              </div>
               <ButtonIcon customClass="light" size="medium" onClick={toggleMobMenuVisibility}>
                 <Icons.close size="medium" />
               </ButtonIcon>
@@ -51,11 +55,7 @@ const MobMenu = () => {
             </div>
 
             <div className={s.catalog}>
-              <Button
-                width="full"
-                color="green"
-                onClick={toggleMobCatalogVisibility}
-              >
+              <Button width="full" color="green" onClick={toggleMobCatalogVisibility}>
                 <Icons.menu />
                 Каталог
               </Button>

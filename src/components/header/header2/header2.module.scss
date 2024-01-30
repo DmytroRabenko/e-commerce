@@ -7,7 +7,7 @@
   color: $color_white;
   transition: $transition;
   padding: 1rem 0;
- // overflow: hidden;
+  // overflow: hidden;
   &.fixedHeader {
     position: fixed;
     top: 0;
@@ -43,7 +43,7 @@
       }
     }
   }
-  .catalogButton{
+  .catalogButton {
     width: 220px;
   }
 
@@ -55,23 +55,17 @@
     @media screen and (min-width: 1024px) {
       gap: 3rem;
     }
-    .logo {
-      width: 150px;
-      height: 2.5rem;
-      z-index: 50;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: $border;
-    }
     .mobLogo {
-      z-index: 10;
-      position: absolute;
-      left: 50vw;
-      transform: translate(-50%);
+      
+      display: none;
+      @media screen and (min-width: 768px) {
+        color: $color-white;
+        z-index: 10;
+        display: block;
+      }
     }
-    .search{
-      width: 45%;
+    .search {
+      width: 40%;
     }
     .buttonsIcons {
       display: flex;
@@ -93,7 +87,7 @@
         }
       }
 
-      @media screen and (min-width: 768px ) {
+      @media screen and (min-width: 768px) {
         > :first-child,
         > :nth-child(2) {
           display: block;

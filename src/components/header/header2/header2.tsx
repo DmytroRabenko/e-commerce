@@ -17,6 +17,7 @@ import useStateStore from '@/store/stateStore';
 import s from './header2.module.scss';
 import ButtonCount from '@/components/ui/button-count/button-count';
 import NavCatalog from '@/components/nav-catalog/nav-catalog';
+import Logo from '@/components/header/logo/logo';
 
 export default function Header2() {
   const isLaptop = useMediaQuery({ minWidth: 1024 });
@@ -40,9 +41,8 @@ export default function Header2() {
           <div className={s.content}>
             {isLaptop ? (
               <>
-                <Link href="/" className={s.logo}>
-                  Logo
-                </Link>
+                <Logo />
+
                 <div className={s.catalogButton} ref={catalogButtonRef}>
                   <Button width="full" onClick={toggleCatalogVisibility} color="green">
                     <Icons.menu />
@@ -68,9 +68,9 @@ export default function Header2() {
                   <Icons.menu />
                   Меню
                 </button>
-                <Link href="/" className={s.mobLogo}>
-                  MobLogo
-                </Link>
+                <div className={s.mobLogo}>
+                  <Logo />
+                </div>
                 <div className={s.buttonsIcons}>
                   <SearchBlock />
                   <span className={s.border}></span>
