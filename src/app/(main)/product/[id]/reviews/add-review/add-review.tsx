@@ -21,12 +21,10 @@ const initialValues = {
 };
 
 const AddReview = () => {
-
   const onSubmit = async (values: ReviewType) => {
     console.log(values);
-    
+
     try {
-      
       const formData = new FormData();
       const reviewData: ReviewType = {
         name: formData.get('name') as string,
@@ -38,7 +36,7 @@ const AddReview = () => {
         id: formData.get('id') as string,
       };
       console.log(reviewData);
-      
+
       await addProductReview(reviewData);
     } catch (error) {
       console.log(error);
@@ -49,32 +47,22 @@ const AddReview = () => {
     <div className={s.container}>
       <h5 className={s.title}>Залишити відгук</h5>
       <div className={s.formContainer}>
-        <Formik 
-        initialValues={initialValues} 
-        validationSchema={addReviewValidation} 
-        onSubmit={onSubmit}>
+        <Formik initialValues={initialValues} validationSchema={addReviewValidation} onSubmit={onSubmit}>
           {formik => {
             return (
               <Form>
                 <div className={s.form}>
                   <div className={s.inputsBlock}>
+                    <Field name="name" id="name" component={TextInput} label="Ваше ім'я*" />
+                    <Field name="email" id="email" component={TextInput} label="Ваш email*" />
                     <Field
-                      name="name"
-                      id="name"
-                      component={TextInput}
-                     // maxLength={100}
-                      //showCharacterCount={true}
-                      label="Ваше ім'я*"
+                      name="rating"
+                      id="rating"
+                      component={Rating}
+                      label="Оцініть товар"
+                      size="medium"
+                      ratingValue={5}
                     />
-                    <Field
-                      name="email"
-                      id="email"
-                      component={TextInput}
-                     // maxLength={100}
-                     // showCharacterCount={true}
-                      label="Ваш email*"
-                    />
-                    <Field name="rating" id="rating" component={Rating} size="medium" ratingValue={5} />
                   </div>
                   <div className={s.textAreaBlock}>
                     <Field
@@ -82,16 +70,13 @@ const AddReview = () => {
                       id="text"
                       placeholder="text"
                       component={TextArea}
-                     // maxLength={1000}
+                      // maxLength={1000}
                       //showCharacterCount={true}
                       label="Текст відгука"
                     />
                   </div>
                 </div>
-                <Button
-                  color="green"
-                  width='full'
-                >
+                <Button color="green" width="full">
                   Залишити відгук
                 </Button>
               </Form>

@@ -7,7 +7,7 @@ interface ReviewProps {
 }
 
 const Review:React.FC<ReviewProps> = async ({review}) => {
-    const{name, rating, text, date} = review;
+    const{name, rating, text, date, answerName, answerDate, answerText} = review;
   return (
     <div className={s.review}>
       <div className={s.title}>
@@ -16,6 +16,13 @@ const Review:React.FC<ReviewProps> = async ({review}) => {
       </div>
       <p className={s.text}>{text}</p>
       <div className={s.date}>{date}</div>
+      {answerText && (
+        <div className={s.answer}>
+          <span className={s.answerTitle}>{answerName}</span>
+          <p className={s.answerText}>{answerText}</p>
+          <div className={s.answerDate}>{answerDate}</div>
+        </div>
+      )}
     </div>
   );
 };

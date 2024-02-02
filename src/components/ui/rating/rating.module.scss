@@ -2,6 +2,10 @@
 .container{
     display: flex;
     align-items: center;
+    gap: .5rem;
+    &.margin{
+        margin-bottom: 1rem;
+    }
     .star{
         color: $color_green;
     }

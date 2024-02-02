@@ -1,18 +1,19 @@
 'use client';
 import React from 'react';
 import { Icons } from '@/components/ui/icons/icons';
-import s from './rating.module.scss'
+import s from './rating.module.scss';
 
-interface RatingProps{
+interface RatingProps {
   count?: number;
   readonly?: boolean;
   ratingValue?: number;
-  size: 'small' | 'medium' | 'large' 
+  size: 'small' | 'medium' | 'large';
   onChange?: (value: number) => void;
+  label?: string;
 }
 
 const Rating = React.forwardRef<HTMLDivElement, RatingProps>(function Rating(
-  { count = 5, readonly, ratingValue, size,onChange },
+  { count = 5, readonly, ratingValue, size, onChange, label },
   ref
 ) {
   const [hoverValue, setHoverValue] = React.useState<number | undefined>(undefined);
@@ -42,24 +43,25 @@ const Rating = React.forwardRef<HTMLDivElement, RatingProps>(function Rating(
   const stars = Array.from({ length: count }, (_, index) => {
     const filled = hoverValue ? index < hoverValue : index < value;
     return (
-      <span
-        key={`star_${index}`}
-        onClick={() => handleRating(index)}
-        onMouseEnter={() => handleMouseMove(index)}
-        onMouseLeave={handleMouseLeave}
-        className={s.star}
-      >
-        {filled ? (
-          <Icons.starFilled className={s.activeStar} size={`${size}`} />
-        ) : (
-          <Icons.starOutlined className={s.defaultStar} size={`${size}`} />
-        )}
-      </span>
+        <span
+          key={`star_${index}`}
+          onClick={() => handleRating(index)}
+          onMouseEnter={() => handleMouseMove(index)}
+          onMouseLeave={handleMouseLeave}
+          className={s.star}
+        >
+          {filled ? (
+            <Icons.starFilled className={s.activeStar} size={`${size}`} />
+          ) : (
+            <Icons.starOutlined className={s.defaultStar} size={`${size}`} />
+          )}
+        </span>
     );
   });
 
   return (
-    <div ref={ref} className={s.container}>
+    <div ref={ref} className={`${s.container} ${label ? s.margin: ''}`}>
+      {label && <label className={s.label}>{label}</label>}
       {stars}
     </div>
   );

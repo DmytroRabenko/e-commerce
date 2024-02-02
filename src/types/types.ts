@@ -23,7 +23,10 @@ export interface ReviewType{
   date: string
   email: string
   id: string
-  productId: string
+  productId?: string
+  answerName?: string
+  answerText?: string
+  answerDate?: string
 }
 
 export interface Product {

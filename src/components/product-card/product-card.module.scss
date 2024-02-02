@@ -8,6 +8,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  border-radius: $br-small;
   .imageContainer {
     overflow: hidden;
     margin: 2rem 1rem 1rem;
@@ -18,18 +19,21 @@
     }
   }
   .description {
-    height: 100px;
+   /// display: grid;
+   // grid-template-rows: auto;
     color: $color-blue-gray;
     .type{
       font-size: 0.85rem;
       font-weight: 700;
+      height: 50px;
     }
     .name {
       display: block;
-      margin: 0.25rem 0 0.5rem;
+      margin: 0.25rem 0 0.25rem;
       color: $color-green;
       font-size: 0.9rem;
       font-weight: 700;
+      height: 50px;
     }
   }
   .priceblock {

@@ -1,34 +1,44 @@
 @import '@/styles/variables.scss';
-.container{
-    width: 100%;
+.container {
+  width: 100%;
+  border: $border;
+  border-radius: $br-small;
+  background-color: rgb(229, 231, 235, 0.1);
+  padding: 1rem;
+  color: $color_gray;
+  @media screen and (min-width: 1024px) {
+    width: 70%;
     height: 305px;
-    border: $border;
-    border-radius: $br-small;
-    background-color: rgb(229, 231, 235, 0.1);
-    padding: 1rem;
-    color: $color_gray;
-    @media screen and (min-width: 1024px) {
-        width: 70%;
-      }
-    .title{
-        font-size: 1rem;
-        padding-bottom: .5rem;
-        border-bottom: $border;
-        margin-bottom: .5rem;
-    }
-    .formContainer{
-        .form{
-            display: flex;
-            gap: 1rem;
-            margin-bottom: .5rem;
-            .inputsBlock{
-                width: 100%;
-                width: calc(50% - 0.5rem);
-            }
-            .textAreaBlock{
-                width: calc(50% - 0.5rem);
-            }
-        }
-    }
+  }
+  .title {
+    font-size: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: $border;
+    margin-bottom: 0.5rem;
+  }
+  .formContainer {
+    .form {
+      //display: flex;
+      //gap: 1rem;
+    
 
+      @media screen and (min-width: 1024px) {
+        margin-bottom: 0.5rem;
+        display: flex;
+        gap: 1rem;
+      }
+      .inputsBlock {
+        width: 100%;
+        @media screen and (min-width: 1024px) {
+          width: calc(50% - 0.5rem);
+        }
+      }
+      .textAreaBlock {
+        width: 100%;
+        @media screen and (min-width: 1024px) {
+            width: calc(50% - 0.5rem);
+          }
+      }
+    }
+  }
 }

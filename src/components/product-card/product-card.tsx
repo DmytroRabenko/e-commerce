@@ -23,14 +23,13 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           <Image className={s.image} src={images[0]} alt={title} fill={true} />
         </div>
 
+        <ProductCardRewiews productId={id} />
+
         <div className={s.description}>
-          <ProductCardRewiews productId={id} />
-          <p className={s.type}>
-            {title}
-          </p>
+          <p className={s.type}>{title}</p>
           <h5 className={s.name}>
-              {brand} {seria}
-            </h5>
+            {brand} {seria}
+          </h5>
         </div>
       </Link>
       <div className={s.priceblock}>
