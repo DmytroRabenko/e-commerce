@@ -1,9 +1,13 @@
 @import '@/styles/variables.scss';
-.footer{
-    width:100%;
-    min-height: 250px;
-    background-color: $color-blue-gray;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.footer {
+  width: 100%;
+  min-height: 250px;
+  background-color: $color-blue-gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.5rem;
+  @media screen and (min-width: 1024px) {
+    margin-top: 3rem;
+  }
 }

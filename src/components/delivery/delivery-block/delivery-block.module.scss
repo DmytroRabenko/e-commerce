@@ -1,0 +1,26 @@
+@import '@/styles/variables.scss';
+
+.list {
+  li {
+    margin: 0.75rem 0;
+    .links {
+      margin: 0.75rem 0;
+      display: flex;
+      gap: 1rem;
+      a {
+        display: block;
+        width: 150px;
+        height: 65px;
+        position: relative;
+        
+        @media screen and (min-width: 1024px) {
+          width: 200px;
+          height: 75px;
+        }
+        img {
+          object-fit: contain;
+        }
+      }
+    }
+  }
+}

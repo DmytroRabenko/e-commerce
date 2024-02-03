@@ -7,8 +7,8 @@ import '../styles/globals.scss';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Parfums Alina',
-  description: 'Найкращі доступні парфуми, оптом та вроздріб',
+  title: 'Parfumerie - магазин парфумів, найкращі ціни, відмінна якість!',
+  description: 'Найкращі доступні парфуми, оптом та вроздріб, брендові, копії брендів, сток',
   robots: {
     follow: true,
     index: true,

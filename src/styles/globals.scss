@@ -12,7 +12,6 @@ body {
   width: 100%;
   max-width: 100vw;
   background-color: $color_white;
- // overflow-x: hidden;
   &.noScroll {
     overflow: hidden;
   }
@@ -28,6 +27,9 @@ button {
   border: none;
   cursor: pointer;
 }
+ul{
+  list-style: none;
+}
 
 .content {
   max-width: 1900px;
@@ -35,7 +37,34 @@ button {
   margin: 0 auto;
 }
 
-
+h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 1rem 0;
+  color: $color_gray;
+  @media screen and (min-width: 768px) {
+    font-size: 1.5rem;
+  }
+  @media screen and (min-width: 1024px) {
+    font-size: 2rem;
+    margin: 2rem 0;
+  }
+  strong {
+    color: $color_green;
+  }
+}
+h2 {
+  color: $color_gray;
+  font-weight: 700;
+  font-size: 1rem;
+  margin: 1rem 0;
+  @media screen and (min-width: 768px) {
+    font-size: 1.25rem;
+  }
+  @media screen and (min-width: 1024px) {
+    font-size: 1.5rem;
+  }
+}
 
 .full {
   //////////////////////////////////
@@ -45,28 +74,28 @@ button {
 }
 
 //swiper
-.swiper-pagination-bullet{
+.swiper-pagination-bullet {
   width: 1.5rem;
-  height: .4rem;
+  height: 0.4rem;
   border-radius: 3px;
   margin: 0 0.1rem;
   background-color: $color_blue-gray;
   display: none;
   @media screen and (min-width: 380px) {
-   display: inline-block;
+    display: inline-block;
   }
 }
 .swiper-pagination-bullet-active {
   background-color: $color_green;
 }
-.swiper-lazy-preloader{
+.swiper-lazy-preloader {
   color: $color_green;
 }
-.swiper{
+.swiper {
   color: $color_green;
 }
 
-.preloader{
+.preloader {
   color: $color_green;
- // border: 1px solid $color_green;
+  // border: 1px solid $color_green;
 }

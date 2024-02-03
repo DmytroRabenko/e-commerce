@@ -3,8 +3,8 @@ import { getProductReviews, getProductById } from '@/services/services';
 import { ReviewType } from '@/types/types';
 import Rating from '@/components/ui/rating/rating';
 import s from '../product-page.module.scss';
-import Review from './review/review';
-import AddReview from './add-review/add-review';
+import Review from '@/components/review/review/review';
+import AddReview from '@/components/review/add-review/add-review';
 
 type Props = {
   params: { id: string };

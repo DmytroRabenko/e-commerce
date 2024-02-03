@@ -1,0 +1,19 @@
+@import '@/styles/variables.scss';
+.container {
+  display: flex;
+}
+.list {
+  list-style: none;
+  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  li {
+    height: 130px;
+    padding: 1rem;
+    border: $border;
+    border-radius: $br-small;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

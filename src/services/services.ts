@@ -35,7 +35,14 @@ export async function getCategoryProducts({category, page, limit}:GetCategoryPro
       throw new Error(error?.response?.data?.message);
     }
   }
-
+  export async function getAllReviews() {
+    try {
+      const res = await axios.get(`/reviews`);
+      return res.data;
+    } catch (error: any) {
+      throw new Error(error?.response?.data?.message);
+    }
+  }
 
   export async function getProductReviews(productId: string) {
     try {
