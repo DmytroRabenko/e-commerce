@@ -3,6 +3,7 @@ import Image from 'next/image';
 import ProductNavLinks from '@/components/product-page/description/product-nav-links/product-nav-links';
 import { Metadata } from 'next'; //, ResolvingMetadata
 import Container from '@/components/ui/container/container';
+import BreadCrumbs from '@/components/review/breadcrumbs/breadcrumbs';
 import Loading from '@/components/loading/loading';
 import ProductCardRewiews from '@/components/product-card/product-card-reviews/product-card-reviews';
 import ToBuyBlock from '@/components/product-page/description/to-buy-block';
@@ -31,12 +32,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 const ProductPageLayout = async ({ params, children }: ProductPageLayoutProps) => {
   const product = await getProductById(params.id);
-  const { code, brand, seria, title, description, openingNote, heartNote, finalNote, images, id} = product;
-
+  const { code, brand, seria, title, description, openingNote, heartNote, finalNote, images, id } = product;
+  const breadcrumbs = [
+    { label: 'Каталог товарів', url: '/catalog' },
+    { label: `${brand} ${seria}`, url: '/' },
+  ];
   return (
     <>
       <Container>
-        <div>Хлібні крихти</div>
+        <BreadCrumbs breadcrumbs={breadcrumbs} />
 
         <div className={s.productContainer}>
           <div className={s.imagesBlock}>

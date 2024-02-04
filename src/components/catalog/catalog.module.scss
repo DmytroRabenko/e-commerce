@@ -5,7 +5,17 @@
   .products {
     padding: 1.5rem 0;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: .75rem;
+    @media screen and (min-width: 768px) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    @media screen and (min-width: 1024px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    @media screen and (min-width: 1280px) {
+      grid-template-columns: repeat(5, 1fr);
+    }
   }
 }

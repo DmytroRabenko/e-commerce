@@ -9,7 +9,6 @@ interface GetCategoryProducts{
   limit: string
 }
 
-
 export async function getAllProducts() {
   try {
     const res = await axios.get(`/catalog`);
@@ -35,6 +34,23 @@ export async function getCategoryProducts({category, page, limit}:GetCategoryPro
       throw new Error(error?.response?.data?.message);
     }
   }
+  //***************catalog******************
+  export async function getCategoryList() {
+    try {
+      const res = await axios.get(`/categories`);
+      return res.data.category;
+    } catch (error: any) {
+      throw new Error(error?.response?.data?.message);
+    }
+  }
+
+
+
+
+
+
+
+  //***************reviews******************
   export async function getAllReviews() {
     try {
       const res = await axios.get(`/reviews`);

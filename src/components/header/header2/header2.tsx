@@ -31,7 +31,6 @@ export default function Header2() {
 
   useClickOutside(isCatalogVisible, [catalogBlockRef, catalogButtonRef], () => {
     toggleCatalogVisibility();
-    console.log('каталог');
   });
 
   return (

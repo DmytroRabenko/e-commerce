@@ -1,0 +1,16 @@
+@import '@/styles/variables.scss';
+.breadcrumbs {
+  margin: 1rem;
+  display: flex;
+  align-items: center;
+  color: $color_gray;
+  position: relative;
+  > a:last-child {
+    color: $color_lightgray;
+    cursor: auto;
+    pointer-events: none;
+  }
+  svg:nth-last-child(2) {
+    color: $color_lightgray;
+  }
+}

@@ -5,9 +5,24 @@ import ButtonIcon from '@/components/ui/button-icon/button-icon';
 import NavCatalogList from '@/components/nav-catalog/nav-catalog-list/nav-catalog-list';
 import s from './nav-catalog.module.scss';
 import { Icons } from '../ui/icons/icons';
-
+import { useEffect, useState } from 'react';
+import { getCategoryList } from '@/services/services';
 const NavCatalog = () => {
   const { isCatalogVisible, toggleCatalogVisibility } = useStateStore();
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await getCategoryList();
+        setCategories(result);
+        console.log(result);
+      } catch (error) {
+        console.error('Error fetching category list:', error);
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
     <div className={`${s.catalog} ${isCatalogVisible ? s.visible : ''}`}>
@@ -17,7 +32,7 @@ const NavCatalog = () => {
             <Icons.close size="medium" />
           </ButtonIcon>
         </div>
-        <NavCatalogList />
+        <NavCatalogList categories={categories} handleClick={toggleCatalogVisibility} />
       </div>
     </div>
   );
