@@ -1,7 +1,7 @@
 @import '@/styles/variables.scss';
 .productCard {
   position: relative;
-  padding: 1rem;
+  padding: 0.5rem;
   overflow: hidden;
   box-shadow: $shadow-blue-gray-n;
   transition: $transition;
@@ -12,46 +12,63 @@
   .imageContainer {
     overflow: hidden;
     margin: 2rem 1rem 1rem;
-    height: 250px;
+    height: 200px;
     position: relative;
     .image {
       object-fit: contain;
     }
   }
   .description {
-   /// display: grid;
-   // grid-template-rows: auto;
     color: $color-blue-gray;
-    .type{
+    .type {
       font-size: 0.85rem;
       font-weight: 700;
-      height: 50px;
+      height: 32px;
+      margin: 0.5rem 0;
+      overflow: hidden;
     }
     .name {
       display: block;
-      margin: 0.25rem 0 0.25rem;
       color: $color-green;
       font-size: 0.9rem;
       font-weight: 700;
-      height: 50px;
+      height: 32px;
+      margin: 0.5rem 0;
+    }
+    .value{
+      height: 1rem;
+      font-size: 0.85rem;
+      margin: .5rem 0;
     }
   }
   .priceblock {
+    font-size: 1.1rem;
+    margin: .5rem 0rem 1rem;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    color: $color_white;
+    gap: 1rem;
+    .salePrice{
+      font-weight: 500;
+      color: $color_red;
+    }
     .price {
       font-weight: 500;
-      font-size: 1.1rem;
-
       color: $color-blue-gray;
+      &.sale{
+        text-decoration: line-through;
+        font-weight: 400;
+        font-size: 1rem;
+      }
     }
+  }
+  .notHave{
+    margin: .5rem 0 .5rem;
+    font-size: .85rem;
   }
   .favorite {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top: 0.5rem;
+    right: 0.5rem;
   }
 }
 .productCard:hover {

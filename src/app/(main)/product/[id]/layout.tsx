@@ -32,9 +32,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 const ProductPageLayout = async ({ params, children }: ProductPageLayoutProps) => {
   const product = await getProductById(params.id);
-  const { code, brand, seria, title, description, openingNote, heartNote, finalNote, images, id } = product;
+  const { code, brand, seria, title, description, images, id, value } = product;
   const breadcrumbs = [
-    { label: 'Каталог товарів', url: '/catalog' },
+    { label: 'Каталог', url: '/catalog' },
     { label: `${brand} ${seria}`, url: '/' },
   ];
   return (
@@ -50,15 +50,14 @@ const ProductPageLayout = async ({ params, children }: ProductPageLayoutProps) =
           </div>
 
           <div className={s.descriptionBlock}>
-            <div className={s.titleBlock}>
-              <h2 className={s.title}>
-                {brand} {seria}
-              </h2>
-              <FavoriteIcon size="large" product={product} />
+            <h1 className={s.title}>
+              {brand} {seria}
+            </h1>
+            <div className={s.codeBlock}>
+              <ProductCardRewiews productId={id} />
+              <div className={s.code}>Код товару: {code}</div>
             </div>
 
-            <ProductCardRewiews productId={id} />
-            <div className={s.code}>Код товару: {code}</div>
             <p className={s.description}>
               {title}{' '}
               <strong>
@@ -66,17 +65,8 @@ const ProductPageLayout = async ({ params, children }: ProductPageLayoutProps) =
               </strong>{' '}
               - {description}
             </p>
-            <div>
-              <p>
-                <strong>Початкова нота: </strong> {openingNote}
-              </p>
-              <p>
-                <strong>Нота серця: </strong> {heartNote}
-              </p>
-              <p>
-                <strong>Кінцева нота: </strong> {finalNote}
-              </p>
-            </div>
+
+            <div className={s.value}>{value ? value: ''}</div>
             <ToBuyBlock product={product} />
           </div>
         </div>
@@ -96,3 +86,19 @@ const ProductPageLayout = async ({ params, children }: ProductPageLayoutProps) =
 };
 
 export default ProductPageLayout;
+
+/**
+ *   <FavoriteIcon size="large" product={product} />
+ * <div>
+              <p>
+                <strong>Початкова нота: </strong> {openingNote}
+              </p>
+              <p>
+                <strong>Нота серця: </strong> {heartNote}
+              </p>
+              <p>
+                <strong>Кінцева нота: </strong> {finalNote}
+              </p>
+            </div>
+ * 
+ */

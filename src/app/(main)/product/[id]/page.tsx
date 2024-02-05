@@ -10,6 +10,7 @@ const ProductPage = async ({ params: { id } }: Props) => {
   const {
     brand,
     seria,
+    value,
     gender,
     country,
     madeIn,
@@ -24,6 +25,9 @@ const ProductPage = async ({ params: { id } }: Props) => {
         </li>
         <li>
           Серія: <span>{seria}</span>
+        </li>
+        <li>
+          Об`єм: <span>{value}</span>
         </li>
         <li>
           Стать: <span>{gender}</span>

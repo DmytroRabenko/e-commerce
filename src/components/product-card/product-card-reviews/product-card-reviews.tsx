@@ -48,7 +48,7 @@ const ProductCardRewiews: React.FC<ProductCardReviewsProps> =  ({ productId }) =
           </span>
         </>
       ) : (
-        <span className={s.reviewsPlaseholder}>Відгуки відсутні</span>
+        <span className={s.reviewsPlaseholder}></span>
       )}
     </div>
   );

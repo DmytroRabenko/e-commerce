@@ -10,6 +10,7 @@
   transition: all 0.2s ease-in;
   background-color: transparent;
   backdrop-filter: blur(10);
+  border-radius: $br-small;
 }
 .favorite:hover {
   transform: scale(1.1);

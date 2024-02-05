@@ -1,13 +1,17 @@
 @import '@/styles/variables.scss';
 .reviewBlock {
   font-size: 0.7rem;
-  padding: 0.2rem 0;
+  margin: .5rem 0;
   display: flex;
+  align-items: center;
   .reviewsCount {
     padding-left: 0.5rem;
   }
+  
   .reviewsPlaseholder {
     display: block;
-    padding-bottom: 0.4rem;
+    height: 1rem;
+   // padding-bottom: 0.4rem;
   }
+  
 }

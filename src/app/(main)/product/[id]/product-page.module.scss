@@ -26,18 +26,27 @@
     @media screen and (min-width: 1024px) {
       padding: 1rem;
     }
-    .titleBlock {
-      display: flex;
-      justify-content: space-between;
-    }
     .title {
-      margin-bottom: 0.5rem;
+      color: $color-green;
+      margin: 0 0 1rem;
+     // margin-bottom: 0.5rem;
+    }
+    .codeBlock{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      >div{
+        margin: 0;
+      }
     }
     .code {
       font-size: 0.7rem;
-      padding: 0.25rem 0;
     }
     .description {
+      margin: 1rem 0;
+    }
+    .value{
+      height: 1rem;
       margin: 1rem 0;
     }
   }

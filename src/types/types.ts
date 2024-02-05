@@ -38,8 +38,10 @@ export interface Product {
   description?: string
   brand: string
   seria?: string
+  value?: string
   gender?: string
   price: number
+  salePrice? : number, 
   count: number
   country?: string
   madeIn?: string

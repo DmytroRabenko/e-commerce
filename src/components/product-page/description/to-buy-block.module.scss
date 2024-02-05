@@ -1,15 +1,43 @@
 @import '@/styles/variables.scss';
 .container {
-    color: $color-blue-gray;
-  .price {
-    padding: 1rem 0;
-    font-size: 1.3rem;
-    color: $color_green;
-    span{
-        color: $color-blue-gray;;
+  color: $color-blue-gray;
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .priceblock {
+      font-size: 1.3rem;
+      margin: 1rem 0 1rem;
+      display: flex;
+      align-items: center;
+      //justify-content: flex-end;
+      gap: 1rem;
+      .salePrice {
+        font-weight: 500;
+        color: $color_red;
+      }
+      .price {
+        font-weight: 500;
+        color: $color-blue-gray;
+        &.sale {
+          text-decoration: line-through;
+          font-weight: 400;
+          font-size: 1.1rem;
+        }
+      }
+    }
+    >button{
+      box-shadow: $shadow-blue-gray-n;
     }
   }
-  .price {
-    font-size: 1.2rem;
+  .notHave {
+    margin: 0.5rem 0 0.5rem;
+    font-size: 0.85rem;
+  }
+  @media screen and (min-width: 1024px) {
+    > button {
+      padding: 0.5rem 2.5rem;
+      margin-left: auto;
+    }
   }
 }
