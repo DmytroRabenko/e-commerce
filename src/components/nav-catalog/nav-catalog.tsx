@@ -16,7 +16,7 @@ const NavCatalog = () => {
       try {
         const result = await getCategoryList();
         setCategories(result);
-        console.log(result);
+        //console.log(result);
       } catch (error) {
         console.error('Error fetching category list:', error);
       }

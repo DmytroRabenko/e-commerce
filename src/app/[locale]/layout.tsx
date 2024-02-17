@@ -1,8 +1,8 @@
 import { Suspense } from 'react';
-import Providers from '@/services/providers';
+import Providers from '@/services/providers/providers';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import '../styles/globals.scss';
+import '@/styles/globals.scss';
 
 const inter = Inter({ subsets: ['latin'] });
 

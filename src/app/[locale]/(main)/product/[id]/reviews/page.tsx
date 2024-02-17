@@ -37,7 +37,7 @@ const ProductPageReviews = async ({ params }: Props) => {
         <div className={s.ratingTitle}>
           <p className={s.text}>Оцінка користувачів</p>
           <div className={s.content}>
-            <span className={s.value}>{totalRating}</span>
+            <span className={s.value}>{totalRating ? totalRating : '0'}</span>
             <div className={s.rating}>
               <Rating readonly size="small" ratingValue={totalRating} />
               <span>Всього відгуків: {reviews.length}</span>

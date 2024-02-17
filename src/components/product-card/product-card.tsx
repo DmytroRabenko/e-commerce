@@ -19,7 +19,13 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     <div className={s.productCard}>
       <Link onClick={() => addToViewed(product)} href={`/product/${product.id}`}>
         <div className={s.imageContainer}>
-          <Image className={s.image} src={images[0]} alt={title} fill={true} />
+          <Image
+            className={s.image}
+            src={images[0]}
+            alt={title}
+            fill={true}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
         </div>
         <ProductCardRewiews productId={id} />
         <div className={s.description}>
@@ -27,21 +33,21 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           <h5 className={s.name}>
             {brand} {seria}
           </h5>
-          <div className={s.value}>{value ? value: ''}</div>
+          <div className={s.value}>{value ? value : ''}</div>
         </div>
       </Link>
       {count > 0 ? (
         <div className={s.priceblock}>
-        {salePrice && (<span className={s.salePrice}>{salePrice} грн</span>)}
-        <p className={`${s.price} ${salePrice ? s.sale : ''}`}>
-          {price}
-          <span> грн</span>
-        </p>
-      </div>
-      ): (
+          {salePrice && <span className={s.salePrice}>{salePrice} грн</span>}
+          <p className={`${s.price} ${salePrice ? s.sale : ''}`}>
+            {price}
+            <span> грн</span>
+          </p>
+        </div>
+      ) : (
         <p className={s.notHave}>немає в наявності</p>
-      ) }
-      
+      )}
+
       <ProductBuy product={product} />
 
       <div className={s.favorite}>
