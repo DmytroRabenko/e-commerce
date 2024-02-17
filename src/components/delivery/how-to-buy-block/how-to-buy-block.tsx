@@ -1,17 +1,18 @@
 import s from './how-to-buy-block.module.scss';
-import initTranslations from '@/i18n';
 
-const HowToBuyBlock = async ({ locale }: { locale: string }) => {
-  const { t } = await initTranslations(locale, ['delivery-page']);
+const HowToBuyBlock = () => {
   return (
     <ul className={s.list}>
-      <li>1. {t('process-item1')}</li>
-      <li>2. {t('process-item2')}</li>
-      <li>3. {t('process-item3')}</li>
-      <li>4. {t('process-item4')}</li>
-      <li>5. {t('process-item5')}</li>
-      <li>6. {t('process-item6')}</li>
-      <li>7. {t('process-item7')}</li>
+      <li>1. Оберіть на сайті товари, які хочете придбати.</li>
+      <li>2. Додайте товар в кошик натиснувши кнопку купити.</li>
+      <li>3. Перейдіть в кошик натиснувши на кнопку кошика в верхній частині екрану.</li>
+      <li>4. Впевніться що додали всі необхідні товари, та якщо все вірно, - натисніть кнопку Оформити замовлення.</li>
+      <li>5. Введіть дані необхідні для замовлення та натисніть кнопку Підтвердити замовлення.</li>
+      <li>
+        6. Замовлення зроблено. Очікуйте на дзвінок від нашого менеджера для уточнення деталей, або повідомлення про
+        відправку замовлення.
+      </li>
+      <li>7. Отримайте замовлення та насолоджуйтесь якісною продукцію за чесними цінами.</li>
     </ul>
   );
 };

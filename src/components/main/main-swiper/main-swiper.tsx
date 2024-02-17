@@ -17,32 +17,32 @@ const swiperData = [
 export default function MainSwiper() {
   return (
     <Container>
-      <div className={s.container}>
-        <Swiper
-          className={s.slider}
-          modules={[Navigation, Pagination, Autoplay]}
-          spaceBetween={16}
-          slidesPerView={1}
-          autoplay={{
-            delay: 10000,
-            disableOnInteraction: true,
-            pauseOnMouseEnter: true,
-          }}
-          pagination={{ clickable: true }}
-          lazyPreloadPrevNext={5}
-          navigation
-          loop={true}
-        >
-          {swiperData.map(item => (
-            <SwiperSlide className={s.slideContent} key={item.id}>
-              <div className={s.slide}>
-                <Image src={item.url} fill={true} className={s.slideImage} alt="Parfumerie - магазин парфумів, фото" priority={true} ></Image>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-        <div id={s.containerForBullets}></div>
-      </div>
+    <div className={s.container}>
+      <Swiper
+        className={s.slider}
+        modules={[Navigation, Pagination, Autoplay]}
+        spaceBetween={16}
+        slidesPerView={1}
+        autoplay={{
+          delay: 10000,
+          disableOnInteraction: true,
+          pauseOnMouseEnter: true,
+        }}
+        pagination={{ clickable: true }}
+        lazyPreloadPrevNext={5}
+        navigation
+        loop={true}
+      >
+        {swiperData.map(item => (
+          <SwiperSlide className={s.slideContent} key={item.id}>
+            <div className={s.slide}>
+              <Image src={item.url} fill={true} className={s.slideImage} alt="photo"></Image>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+      <div id={s.containerForBullets}></div>
+    </div>
     </Container>
   );
 }
